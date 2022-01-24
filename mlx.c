@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   game.c                                             :+:      :+:    :+:   */
+/*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 21:24:18 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/24 22:56:30 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/24 22:25:14 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/24 23:27:22 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,23 @@
 #include "mlx.h"
 #include <stdlib.h>
 
-void	game_set_error(t_game *game, unsigned int error)
+void	mlx_start(t_game *game)
 {
-	game->error = error;
+	t_mlx	*mlx;
+
+	mlx = &game->mlx;
+	mlx->core = mlx_init();
+	mlx->window = mlx_new_window(mlx->core, 1920, 1080, "so_long nsierra-");
 }
 
-t_bool	game_init(t_game *game)
+void	mlx_destroy(t_game *game)
 {
-	game->mlx.core = NULL;
-	game->mlx.window = NULL;
-	game->config = NULL;
-	if (!config_load(game))
-		return (FALSE);
-	mlx_start(game);
-	return (TRUE);
-}
+	t_mlx	*mlx;
 
-void	game_destroy(t_game *game)
-{
-	config_destroy(game);
-	mlx_destroy(game);
+	mlx = &game->mlx;
+	if (mlx->core == NULL)
+		return ;
+	mlx_destroy_window(mlx->core, mlx->window);
+	mlx_destroy_display(mlx->core);
+	free(mlx->core);
 }

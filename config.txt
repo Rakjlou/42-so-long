@@ -1,0 +1,2 @@
+allow_no_edge_walls 0
+map_mode strict

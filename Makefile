@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/24 21:29:29 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/24 23:26:39 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,9 @@ NAME = so_long
 
 SRC = main.c \
 	game.c \
+	mlx.c \
+	config.c \
+	config_get.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -22,7 +25,7 @@ CC = gcc
 LIBFT_DIR = libft
 MLX_DIR = minilibx-linux
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -ansi \
+CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -g3 \
 			-I $(LIBFT_DIR) \
 			-I inc/ \
 			-I $(MLX_DIR)
@@ -52,5 +55,9 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+test: all
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes \
+	./so_long map/simple.ber
 
 .PHONY: clean fclean re libft mlx
