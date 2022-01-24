@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 15:50:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/24 21:59:21 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/24 21:24:18 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/24 21:59:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "mlx.h"
 #include "so_long.h"
+#include <stdlib.h>
 
-int	main(int ac, char **av)
+void	game_init(t_game *game)
 {
-	t_game	game;
+	t_mlx	*mlx;
 
-	(void)ac;
-	(void)av;
-	game_init(&game);
-	game_destroy(&game);
-	return (0);
+	mlx = &game->mlx;
+	mlx->core = mlx_init();
+	mlx->window = mlx_new_window(mlx->core, 1920, 1080, "Hello world!");
+}
+
+void	game_destroy(t_game *game)
+{
+	t_mlx	*mlx;
+
+	mlx = &game->mlx;
+	mlx_destroy_window(mlx->core, mlx->window);
+	mlx_destroy_display(mlx->core);
+	free(mlx->core);
 }

@@ -6,38 +6,51 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/18 15:54:19 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/24 21:29:29 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 SRC = main.c \
+	game.c \
 
 OBJ = $(SRC:.c=.o)
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -I libft/ -I inc/
-LDFLAGS = -L libft/
+LIBFT_DIR = libft
+MLX_DIR = minilibx-linux
+
+CFLAGS = -Wall -Wextra -Werror -pedantic -ansi \
+			-I $(LIBFT_DIR) \
+			-I inc/ \
+			-I $(MLX_DIR)
+LDFLAGS = -L $(LIBFT_DIR) -lft \
+			-L $(MLX_DIR) -lmlx \
+			-L /usr/lib -lXext -lX11 -lm -lz
 LDLIBS = -lft
 
-all: libft $(NAME)
+all: libft mlx $(NAME)
 
-$(NAME): libft/libft.a $(OBJ)
+$(NAME): $(LIBFT_DIR)/libft.a $(MLX_DIR)/libmlx.a $(OBJ)
 	$(CC) $(OBJ) -o $@ $(LDFLAGS) $(LDLIBS)
 
 libft:
-	make --no-print-directory -C libft/
+	make --no-print-directory -C $(LIBFT_DIR)
+
+mlx:
+	make --no-print-directory -C $(MLX_DIR)
 
 clean:
-	make --no-print-directory -C libft/ clean
+	make --no-print-directory -C $(LIBFT_DIR) clean
+	make --no-print-directory -C $(MLX_DIR) clean
 	rm -f $(OBJ)
 
 fclean: clean
-	make --no-print-directory -C libft/ fclean
+	make --no-print-directory -C $(LIBFT_DIR) fclean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: clean fclean re libft
+.PHONY: clean fclean re libft mlx

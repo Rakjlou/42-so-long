@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 15:50:19 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/24 21:59:21 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/24 21:59:29 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-int	main(int ac, char **av)
+typedef struct s_mlx
 {
-	t_game	game;
+	void	*core;
+	void	*window;
+}	t_mlx;
 
-	(void)ac;
-	(void)av;
-	game_init(&game);
-	game_destroy(&game);
-	return (0);
-}
+typedef struct s_game
+{
+	t_mlx	mlx;
+}	t_game;
+
+void	game_init(t_game *game);
+void	game_destroy(t_game *game);
+
+#endif
