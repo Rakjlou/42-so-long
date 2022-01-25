@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 13:56:55 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/25 14:37:23 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/25 19:03:48 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,7 +117,15 @@ GNL_DIR = gnl/
 GNL_SRC = get_next_line.c \
 	gnl_close.c \
 	get_next_line_fd.c \
-	get_next_line_fd_utils.c
+	get_next_line_fd_utils.c \
+
+READF_DIR = readf/
+READF_SRC = readf.c \
+
+CONFIG_DIR = config/
+CONFIG_SRC = init.c \
+	destroy.c \
+	get.c \
 
 ERR_DIR = err/
 ERR_SRC = fterr_current.c \
@@ -133,6 +141,8 @@ OBJ = $(addprefix $(LIBFT_DIR), $(LIBFT_SRC:.c=.o)) \
 	$(addprefix $(PRINTF_DIR), $(PRINTF_SRC:.c=.o)) \
 	$(addprefix $(LST_DIR), $(LST_SRC:.c=.o)) \
 	$(addprefix $(GNL_DIR), $(GNL_SRC:.c=.o)) \
+	$(addprefix $(READF_DIR), $(READF_SRC:.c=.o)) \
+	$(addprefix $(CONFIG_DIR), $(CONFIG_SRC:.c=.o)) \
 	$(addprefix $(ERR_DIR), $(ERR_SRC:.c=.o)) \
 
 CC = gcc

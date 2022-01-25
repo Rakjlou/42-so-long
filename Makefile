@@ -6,18 +6,26 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/25 00:54:52 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/25 19:29:08 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRC = main.c \
-	game.c \
-	mlx.c \
-	config.c \
-	config_get.c \
-	map.c \
+
+SRC = src/main.c \
+ 	src/errors/register.c \
+ 	src/config/config.c \
+ 	src/game/init.c \
+ 	src/game/destroy.c \
+
+# SRC = main.c \
+# 	game.c \
+# 	mlx.c \
+# 	config.c \
+# 	config_get.c \
+# 	map.c \
+# 	errors/register.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -27,12 +35,15 @@ LIBFT_DIR = libft
 MLX_DIR = minilibx-linux
 
 CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -g3 \
-			-I $(LIBFT_DIR) \
+			-I . \
 			-I inc/ \
-			-I $(MLX_DIR)
+			-I $(LIBFT_DIR) \
+			-I $(MLX_DIR)\
+
 LDFLAGS = -L $(LIBFT_DIR) -lft \
 			-L $(MLX_DIR) -lmlx \
-			-L /usr/lib -lXext -lX11 -lm -lz
+			-L /usr/lib -lXext -lX11 -lm -lz \
+
 LDLIBS = -lft
 
 all: libft mlx $(NAME)
