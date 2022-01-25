@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 13:56:55 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/18 15:30:22 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/25 00:57:39 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,8 @@ LIBFT_SRC = ft_isalpha.c \
 	ft_atol.c \
 	ft_min.c \
 	ft_max.c \
+	ft_ends_with.c \
+	ft_cvalid.c \
 
 PRINTF_DIR = printf/
 PRINTF_SRC = ftprintf.c \
@@ -112,6 +114,7 @@ LST_SRC = iter_init.c \
 
 GNL_DIR = gnl/
 GNL_SRC = get_next_line.c \
+	gnl_close.c \
 	get_next_line_fd.c \
 	get_next_line_fd_utils.c
 

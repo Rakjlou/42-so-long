@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_ends_with.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/03 01:43:34 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 00:14:29 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/24 23:39:19 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/24 23:43:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 4096
-# endif
-
-# include <unistd.h>
-
-typedef struct s_gnl_node
+t_bool	ft_ends_with(char *haystack, char *needle)
 {
-	char				*buffer;
-	size_t				start;
-	size_t				end;
-	size_t				len;
-	struct s_gnl_node	*next;
-}	t_gnl_node;
+	size_t	hlen;
+	size_t	nlen;
 
-char		*get_next_line(int fd);
-void		gnl_close(int fd);
-
-#endif
+	hlen = ft_strlen(haystack);
+	nlen = ft_strlen(needle);
+	if (nlen > hlen)
+		return (FALSE);
+	while (42)
+	{
+		--hlen;
+		--nlen;
+		if (haystack[hlen] != needle[nlen])
+			return (FALSE);
+		else if (nlen == 0)
+			break ;
+	}
+	return (TRUE);
+}

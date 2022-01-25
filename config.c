@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 22:29:57 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/24 23:20:18 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 00:15:11 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ static t_bool	config_load_file(t_game *game)
 		config_entry = ft_split(raw_line, " \t\n\r\v\f");
 		free(raw_line);
 		if (config_entry == NULL)
-			return (close(fd), game_set_error(game, FAILED_MALLOC), FALSE);
+			return (gnl_close(fd), game_set_error(game, FAILED_MALLOC), FALSE);
 		else if (config_entry[0] == NULL)
 			free(config_entry);
 		else if (lst_push_back(game->config, config_entry) == 0)
-			return (close(fd), game_set_error(game, FAILED_MALLOC), FALSE);
+			return (gnl_close(fd), game_set_error(game, FAILED_MALLOC), FALSE);
 	}
-	close(fd);
+	gnl_close(fd);
 	return (TRUE);
 }
 

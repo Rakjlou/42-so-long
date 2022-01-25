@@ -1,2 +1,3 @@
-allow_no_edge_walls 0
+init_mlx 1
+enforce_ber_extension 1
 map_mode strict
