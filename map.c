@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 23:32:57 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 01:22:55 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 01:30:49 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,31 +43,31 @@ static t_bool	verif_simple_map_line(char *line)
 
 static t_bool	verif_simple_map_integrity(t_game *game, char *line)
 {
-	t_iter	iter;
-	t_bool	start_found;
-	t_bool	exit_found;
+	t_iter			iter;
+	t_map_integrity	map;
 
 	if (game->map.raw->size <= 1)
 		return (FALSE);
-	start_found = FALSE;
-	exit_found = FALSE;
+	ft_bzero(&map, sizeof(t_map_integrity));
 	iter_init(&iter, game->map.raw, ASC);
 	while (iter_next(&iter))
 	{
 		line = (char *)iter.data;
 		while (*line)
 		{
-			if ((*line == TILE_SPAWN && start_found == TRUE)
-				|| (*line == TILE_EXIT && exit_found == TRUE))
+			if ((*line == TILE_SPAWN && map.start == TRUE)
+				|| (*line == TILE_EXIT && map.exit == TRUE))
 				return (FALSE);
 			else if (*line == TILE_SPAWN)
-				start_found = TRUE;
+				map.start = TRUE;
 			else if (*line == TILE_EXIT)
-				exit_found = TRUE;
+				map.exit = TRUE;
+			else if (*line == TILE_COLLECTIBLE)
+				map.collectible = TRUE;
 			++line;
 		}
 	}
-	return (TRUE);
+	return (map.collectible);
 }
 
 static t_bool	map_load_file(t_game *game, int fd)

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 00:56:15 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 01:31:07 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,13 @@ typedef struct s_map
 	char		*filename;
 	t_lst		*raw;
 }	t_map;
+
+typedef struct s_map_integrity
+{
+	t_bool	start;
+	t_bool	exit;
+	t_bool	collectible;
+}	t_map_integrity;
 
 typedef struct s_game
 {
