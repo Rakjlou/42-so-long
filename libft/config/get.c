@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:52:54 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 19:04:15 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 22:24:33 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,15 @@ t_bool	ftconfig_get_boolean(t_ftconfig *config, const char *key)
 	entry = ftconfig_get(config, key);
 	if (entry == NULL)
 		return (FALSE);
-	val = ft_atoi(key);
+	else if (entry[1] == NULL)
+		return (TRUE);
+	val = ft_atoi(entry[1]);
 	if (val == 1)
 		return (TRUE);
 	return (FALSE);
 }
 
-int		ftconfig_get_int(t_ftconfig *config, const char *key)
+int	ftconfig_get_int(t_ftconfig *config, const char *key)
 {
 	char	**entry;
 

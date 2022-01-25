@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/25 19:29:08 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/25 22:16:36 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,21 @@ SRC = src/main.c \
  	src/config/config.c \
  	src/game/init.c \
  	src/game/destroy.c \
+ 	src/map/init.c \
+ 	src/map/error.c \
+ 	src/map/free.c \
+	src/map/validator/1collectible.c \
+	src/map/validator/1exit.c \
+	src/map/validator/1spawn.c \
+	src/map/validator/filename.c \
+	src/map/validator/rectangle.c \
+	src/map/validator/wall_bottom.c \
+	src/map/validator/wall_left.c \
+	src/map/validator/wall_right.c \
+	src/map/validator/walls_surround.c \
+	src/map/validator/wall_top.c \
+	src/map/validator/valid_chars_only.c \
+
 
 # SRC = main.c \
 # 	game.c \

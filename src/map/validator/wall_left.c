@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   wall_left.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 18:46:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 19:57:08 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/25 21:57:26 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include "errors.h"
-#include "libft.h"
+#include "map.h"
 
-t_bool	game_init(t_game *game, const char *mapfile)
+t_bool	map_validator_wall_left(t_ftconfig *config, t_map *map)
 {
-	(void)mapfile;
-	ft_bzero(game, sizeof(t_game));
-	errors_register();
-	return (config_init(game, "config.txt")
-		&& map_init(&game->config, &game->map, mapfile));
+	t_iter	iter;
+	char	*line;
+
+	(void)config;
+	iter_init(&iter, &map->raw.data, DESC);
+	while (iter_next(&iter))
+	{
+		line = (char *)iter.data;
+		if (line[0] != TILE_WALL)
+			return (map_error(iter.pos, E_WALL_LEFT, line));
+	}
+	return (TRUE);
 }

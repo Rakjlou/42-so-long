@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:18:30 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 17:12:09 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 22:24:17 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef enum e_readf_status
 }	t_readf_status;
 
 t_readf_status	readf(
-			const char *filename,
-			t_bool (*readl)(const char *, void *),
-			void *data);
+					const char *filename,
+					t_bool (*readl)(const char *, void *),
+					void *data);
 
 #endif

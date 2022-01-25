@@ -6,14 +6,14 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:06:56 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 19:18:50 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 22:23:45 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
 
-#include "fterr.h"
+# include "fterr.h"
 
 # define E_USAGE "Usage: ./so_long map.ber"
 # define E_CONFIG_FILE_OPEN "Couldn't open config file config.txt"
@@ -34,7 +34,8 @@ typedef enum e_error_code
 	INVALID_MAP_LINE,
 	INVALID_MAP,
 	FAILED_MALLOC,
-	MISS_CONFIG_KEY
+	MISS_CONFIG_KEY,
+	UNKNOWN
 }	t_error_code;
 
 void	errors_register(void);

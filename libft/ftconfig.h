@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 16:35:08 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 19:03:40 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 22:24:52 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char				**ftconfig_get(t_ftconfig *config, const char *key);
 char				*ftconfig_get_single(t_ftconfig *config, const char *key);
 t_bool				ftconfig_get_boolean(t_ftconfig *config, const char *key);
 int					ftconfig_get_int(t_ftconfig *config, const char *key);
-
 
 t_ftconfig_status	ftconfig_init(t_ftconfig *config, const char *filename);
 void				ftconfig_destroy(t_ftconfig *config);

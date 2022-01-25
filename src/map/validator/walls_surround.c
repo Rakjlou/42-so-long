@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   walls_surround.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 18:46:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 19:57:08 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/25 21:55:32 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include "errors.h"
-#include "libft.h"
+#include "map.h"
 
-t_bool	game_init(t_game *game, const char *mapfile)
+t_bool	map_validator_walls_surround(t_ftconfig *config, t_map *map)
 {
-	(void)mapfile;
-	ft_bzero(game, sizeof(t_game));
-	errors_register();
-	return (config_init(game, "config.txt")
-		&& map_init(&game->config, &game->map, mapfile));
+	return (map_validator_wall_top(config, map)
+		&& map_validator_wall_bottom(config, map)
+		&& map_validator_wall_left(config, map)
+		&& map_validator_wall_right(config, map));
 }

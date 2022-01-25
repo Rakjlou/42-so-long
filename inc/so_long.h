@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 19:29:48 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 22:23:52 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 # define SO_LONG_H
 
 # include "ftconfig.h"
+# include "map.h"
 
 typedef struct s_game
 {
 	t_ftconfig	config;
+	t_map		map;
 }	t_game;
 
 /* game/ */
