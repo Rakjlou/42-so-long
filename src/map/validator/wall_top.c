@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 21:55:00 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 22:33:09 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_bool	map_validator_wall_top(t_ftconfig *config, t_map *map)
 	while (line[i] != '\n' && line[i])
 	{
 		if (line[i] != TILE_WALL)
-			return (map_error(map->raw.data.size - 1, E_WALL_TOP, line));
+			return (map_error(0, E_WALL_TOP, line));
 		++i;
 	}
 	return (TRUE);

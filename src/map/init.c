@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:34:24 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 22:09:22 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 22:36:05 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static t_bool	map_validate_pro(t_ftconfig *config, t_map *map)
 static t_bool	map_validate_default(t_ftconfig *config, t_map *map)
 {
 	return (map_validator_filename(config, map)
+		&& map_validator_rectangle(config, map)
 		&& map_validator_valid_chars_only(config, map)
 		&& map_validator_walls_surround(config, map)
-		&& map_validator_rectangle(config, map)
 		&& map_validator_1spawn(config, map)
 		&& map_validator_1exit(config, map)
 		&& map_validator_1collectible(config, map));
