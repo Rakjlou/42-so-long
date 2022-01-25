@@ -6,27 +6,30 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 04:49:17 by nsierra-          #+#    #+#             */
-/*   Updated: 2021/12/02 06:16:12 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 14:34:12 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftlst.h"
 #include <stdlib.h>
 
-void	lst_destroy(t_lst **lst, void (*del)(void *))
+void	lst_destroy_nodes(t_lst *lst, void (*del)(void *))
 {
 	void	*data;
-	t_lst	*list;
 
-	list = *lst;
 	while (42)
 	{
-		data = lst_pop_back(list, NULL);
+		data = lst_pop_back(lst, NULL);
 		if (data == NULL)
 			break ;
 		if (del)
 			del(data);
 	}
-	free(list);
+}
+
+void	lst_destroy(t_lst **lst, void (*del)(void *))
+{
+	lst_destroy_nodes(*lst, del);
+	free(*lst);
 	*lst = NULL;
 }

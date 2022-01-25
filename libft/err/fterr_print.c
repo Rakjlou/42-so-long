@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_flag.c                                       :+:      :+:    :+:   */
+/*   fterr_print.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 22:15:41 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 13:30:21 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 13:59:20 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/25 14:47:15 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
-#include <unistd.h>
+#include "fterr.h"
 
-void	print_flag(t_printf *state)
+void	fterr_print(void)
 {
-	write(state->fd, "%", 1);
-	state->bytes_printed += 1;
+	t_fterr	*error;
+
+	error = fterr_current();
+	if (error == NULL)
+		return ;
+	error->print(error);
 }

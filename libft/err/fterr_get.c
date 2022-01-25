@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_flag.c                                       :+:      :+:    :+:   */
+/*   fterr_get.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 22:15:41 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 13:30:21 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 14:17:59 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/25 14:21:13 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
-#include <unistd.h>
+#include "fterr.h"
 
-void	print_flag(t_printf *state)
+t_fterr	*fterr_get(t_fterr_code code)
 {
-	write(state->fd, "%", 1);
-	state->bytes_printed += 1;
+	t_iter	iter;
+	t_fterr	*error;
+	t_lst	*e_list;
+
+	e_list = fterr_get_list();
+	if (e_list == NULL)
+		return (NULL);
+	iter_init(&iter, e_list, ASC);
+	while (iter_next(&iter))
+	{
+		error = (t_fterr *)iter.data;
+		if (error->code == code)
+			return (error);
+	}
+	return (NULL);
 }

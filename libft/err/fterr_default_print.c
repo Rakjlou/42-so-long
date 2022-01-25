@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   state_default.c                                    :+:      :+:    :+:   */
+/*   fterr_default_print.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 23:08:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 13:32:55 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 13:23:46 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/25 14:47:39 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fterr.h"
 #include "libft.h"
 #include "ftprintf.h"
 #include <unistd.h>
 
-static int	get_state(const char token)
+void	fterr_print_ecode(t_fterr *error)
 {
-	if (token == CONVERSION_CHARACTER)
-		return (STATE_CONVERSION_FLAGS);
-	else if (token == '\0')
-		return (STATE_END);
-	return (STATE_DEFAULT);
+	ftfprintf(STDERR_FILENO, "[E%d] ", error->code);
 }
 
-const char	*state_default(const char *format, t_printf *state)
+void	fterr_default_print(t_fterr *error)
 {
-	int	i;
-
-	i = 0;
-	while (format[i] && format[i] != CONVERSION_CHARACTER)
-		i++;
-	if (i != 0)
-	{
-		write(state->fd, format, i);
-		state->bytes_printed += i;
-	}
-	state->current = get_state(format[i]);
-	return (format + i);
+	fterr_print_ecode(error);
+	ftfprintf(STDERR_FILENO, "%s\n", error->message);
 }

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:29:17 by nsierra-          #+#    #+#             */
-/*   Updated: 2021/12/02 02:34:06 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 13:33:01 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ const char	*state_wrong_flag(const char *format, t_printf *state)
 
 	returned = state->op.start;
 	ft_bzero(&state->op, sizeof(t_printf_op));
-	write(STDOUT_FILENO, "%", 1);
+	write(state->fd, "%", 1);
 	state->bytes_printed += 1;
 	state->current = STATE_DEFAULT;
 	(void)format;

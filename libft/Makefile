@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 13:56:55 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/25 00:57:39 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/25 14:37:23 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ LIBFT_SRC = ft_isalpha.c \
 
 PRINTF_DIR = printf/
 PRINTF_SRC = ftprintf.c \
+	ftfprintf.c \
 	utils.c \
 	state/state_default.c \
 	state/state_conversion_flags.c \
@@ -110,7 +111,7 @@ LST_SRC = iter_init.c \
 	node_destroy.c \
 	node_insert_between.c \
 	node_new.c \
-	node_swap.c
+	node_swap.c \
 
 GNL_DIR = gnl/
 GNL_SRC = get_next_line.c \
@@ -118,14 +119,25 @@ GNL_SRC = get_next_line.c \
 	get_next_line_fd.c \
 	get_next_line_fd_utils.c
 
+ERR_DIR = err/
+ERR_SRC = fterr_current.c \
+	fterr_default_print.c \
+	fterr_get_list.c \
+	fterr_print.c \
+	fterr_register.c \
+	fterr_set.c \
+	fterr_get.c \
+	fterr_destroy.c \
+
 OBJ = $(addprefix $(LIBFT_DIR), $(LIBFT_SRC:.c=.o)) \
 	$(addprefix $(PRINTF_DIR), $(PRINTF_SRC:.c=.o)) \
 	$(addprefix $(LST_DIR), $(LST_SRC:.c=.o)) \
-	$(addprefix $(GNL_DIR), $(GNL_SRC:.c=.o))
+	$(addprefix $(GNL_DIR), $(GNL_SRC:.c=.o)) \
+	$(addprefix $(ERR_DIR), $(ERR_SRC:.c=.o)) \
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -ansi
+CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -g3
 IFLAGS = -I.
 
 all: $(NAME)

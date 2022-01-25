@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_flag.c                                       :+:      :+:    :+:   */
+/*   fterr_destroy.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 22:15:41 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 13:30:21 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 14:26:09 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/25 14:36:09 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
-#include <unistd.h>
+#include "fterr.h"
+#include <stdlib.h>
 
-void	print_flag(t_printf *state)
+static void	free_error(void *error_raw)
 {
-	write(state->fd, "%", 1);
-	state->bytes_printed += 1;
+	t_fterr	*error;
+
+	error = (t_fterr *)error_raw;
+	if (error->data_free != NULL)
+		error->data_free(error->data);
+	free(error);
+}
+
+void	fterr_destroy(void)
+{
+	t_lst	*e_list;
+
+	e_list = fterr_get_list();
+	if (e_list == NULL)
+		return ;
+	lst_destroy_nodes(e_list, free_error);
 }

@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_flag.c                                       :+:      :+:    :+:   */
+/*   fterr_set.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/26 22:15:41 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 13:30:21 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 13:42:50 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/25 14:18:46 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
-#include <unistd.h>
+#include "fterr.h"
 
-void	print_flag(t_printf *state)
+void	fterr_set(t_fterr_code code, void *data, void (*data_free)(void *))
 {
-	write(state->fd, "%", 1);
-	state->bytes_printed += 1;
+	t_fterr	*error;
+
+	error = fterr_get(code);
+	if (error == NULL)
+		return ;
+	if (error->data_free != NULL)
+		error->data_free(error->data);
+	error->data = data;
+	error->data_free = data_free;
+	fterr_set_current(error);
+}
+
+void	fterr_set_error(t_fterr_code code)
+{
+	fterr_set(code, NULL, NULL);
 }

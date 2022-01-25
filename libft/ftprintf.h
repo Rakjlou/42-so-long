@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 00:36:16 by nsierra-          #+#    #+#             */
-/*   Updated: 2021/12/04 03:15:14 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 13:33:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,11 @@ typedef struct s_printf
 	int				bytes_printed;
 	unsigned int	current;
 	t_printf_op		op;
+	int				fd;
 
 }	t_printf;
 
+int			ftfprintf(int fd, const char *format, ...);
 int			ftprintf(const char *format, ...)
 			__attribute__((__format__ (__printf__, 1, 2)));
 /* STATES */
@@ -71,6 +73,7 @@ const char	*state_conversion_length(const char *format, t_printf *state);
 const char	*state_conversion_precision(const char *format, t_printf *state);
 const char	*state_conversion_print(const char *format, t_printf *state);
 const char	*state_wrong_flag(const char *format, t_printf *state);
+
 /* CONVERSIONS */
 void		print_character(t_printf *state);
 void		print_string(t_printf *state);
@@ -80,6 +83,7 @@ void		print_unsigned_int(t_printf *state);
 void		print_hex_lowercase(t_printf *state);
 void		print_hex_uppercase(t_printf *state);
 void		print_flag(t_printf *state);
+
 /* UTILS */
 char		*apply_length_flag(t_printf *state, char *original);
 char		*apply_sharp_flag(t_printf *state, char *original, char *prefix);
