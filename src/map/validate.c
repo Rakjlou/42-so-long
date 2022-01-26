@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:42:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 23:02:36 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/27 00:40:29 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /*
 ** TODO: Trim le fichier map (lignes vides au debut et fin)
 */
-t_bool	map_validate()
+t_bool	map_validate(void)
 {
 	t_map	*map;
 

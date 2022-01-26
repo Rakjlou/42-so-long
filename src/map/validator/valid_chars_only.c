@@ -6,11 +6,12 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 22:55:11 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/27 00:27:48 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_validation.h"
+#include "so_long.h"
 
 t_bool	map_validator_valid_chars_only(t_map *map)
 {
@@ -18,6 +19,8 @@ t_bool	map_validator_valid_chars_only(t_map *map)
 	char	*line;
 	int		i;
 
+	if (ftconfig_get_boolean(_config(), "extra_tiles") == FALSE)
+		return (TRUE);
 	iter_init(&iter, &map->file.data, DESC);
 	while (iter_next(&iter))
 	{

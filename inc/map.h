@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:36:46 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 22:47:19 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/27 00:00:43 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define E_INVALID_CHAR "line has an invalid char"
 
 # define VALID_TILE_CHARS "10PEC"
+# define VALID_EXTRA_TILE_CHARS "10PEC"
 # define TILE_WALL '1'
 # define TILE_EMPTY '0'
 # define TILE_SPAWN 'P'
@@ -47,7 +48,7 @@ typedef struct s_map_file
 typedef struct s_map
 {
 	t_map_file		file;
-	t_tile			*tile;
+	t_tile			**tile;
 	unsigned int	length;
 	unsigned int	height;
 }	t_map;
@@ -57,7 +58,5 @@ t_bool		map_init(const char *filename);
 t_bool		map_validate();
 t_bool		map_instanciate();
 void		map_destroy();
-
-t_tile		*map_tile_get(t_map *map, unsigned int x, unsigned int y);
 
 #endif

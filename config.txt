@@ -1,3 +1,2 @@
-init_mlx 1
 enforce_ber_extension 1
-map_mode default
+extra_tiles 0

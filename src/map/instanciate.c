@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:42:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 22:56:53 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/27 00:40:36 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@ static t_bool	map_tiles_init(t_map *map)
 {
 	unsigned int	x;
 	unsigned int	y;
+	unsigned int	index;
 	t_iter			iter;
-	t_tile			*tile;
 	char			*line;
 
-	map->tile = ft_calloc(sizeof(t_tile), map->height * map->length);
-	if (map->tile == NULL)
-		return (fterr_set_error(FAILED_MALLOC), FALSE);
 	x = 0;
 	iter_init(&iter, &map->file.data, ASC);
 	while (iter_next(&iter))
@@ -40,8 +37,10 @@ static t_bool	map_tiles_init(t_map *map)
 		line = (char *)iter.data;
 		while (y < map->length)
 		{
-			tile = map_tile_get(map, x, y);
-			tile_init(tile, line[y], x, y);
+			index = (x * map->length) + y;
+			map->tile[index] = tile_factory(line[y]);
+			if (map->tile[index] == NULL)
+				return (fterr_set_error(FAILED_MALLOC), FALSE);
 			++y;
 		}
 		++x;
@@ -49,11 +48,19 @@ static t_bool	map_tiles_init(t_map *map)
 	return (TRUE);
 }
 
-t_bool	map_instanciate()
+static t_bool	map_init_tiles_tab(t_map *map)
+{
+	map->tile = ft_calloc(sizeof(t_tile *), map->height * map->length);
+	if (map->tile == NULL)
+		return (fterr_set_error(FAILED_MALLOC), FALSE);
+	return (TRUE);
+}
+
+t_bool	map_instanciate(void)
 {
 	t_map	*map;
 
 	map = _map();
 	map_set_length_height(map);
-	return (map_tiles_init(map));
+	return (map_init_tiles_tab(map) && map_tiles_init(map));
 }

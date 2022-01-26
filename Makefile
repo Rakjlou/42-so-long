@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/26 22:50:06 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/27 00:38:45 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,10 @@ SRC = src/main.c \
  	src/map/init.c \
  	src/map/error.c \
  	src/map/destroy.c \
- 	src/map/get.c \
  	src/map/instanciate.c \
  	src/map/validate.c \
- 	src/map/tile/init.c \
- 	src/map/tile/state_factory.c \
+ 	src/map/tile/factory.c \
+ 	src/map/tile/as_tile.c \
 	src/map/validator/1collectible.c \
 	src/map/validator/1exit.c \
 	src/map/validator/1spawn.c \
