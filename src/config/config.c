@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:49:44 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 00:40:59 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/27 00:47:50 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_bool	config_has_mandatory_keys(t_ftconfig *config)
 {
 	int			i;
 	static char	*mandatory_keys[1] = {
-		"enforce_ber_extension",
+		"strict",
 	};
 
 	i = 0;

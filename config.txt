@@ -1,2 +1,1 @@
-enforce_ber_extension 1
-extra_tiles 0
+strict 1
