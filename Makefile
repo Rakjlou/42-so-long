@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/26 21:05:05 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/26 22:50:06 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,21 +17,15 @@ SRC = src/main.c \
  	src/config/config.c \
  	src/game/init.c \
  	src/game/destroy.c \
- 	src/game/render.c \
+ 	src/game/singleton.c \
  	src/map/init.c \
  	src/map/error.c \
  	src/map/destroy.c \
  	src/map/get.c \
+ 	src/map/instanciate.c \
+ 	src/map/validate.c \
  	src/map/tile/init.c \
  	src/map/tile/state_factory.c \
-	src/map/mode/default/init.c \
-	src/map/mode/default/validate.c \
-	src/map/mode/default/instanciate.c \
-	src/map/mode/default/destroy.c \
-	src/map/mode/pro/init.c \
-	src/map/mode/pro/validate.c \
-	src/map/mode/pro/instanciate.c \
-	src/map/mode/pro/destroy.c \
 	src/map/validator/1collectible.c \
 	src/map/validator/1exit.c \
 	src/map/validator/1spawn.c \

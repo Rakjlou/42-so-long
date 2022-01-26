@@ -6,19 +6,24 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 00:56:58 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 23:00:18 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_validation.h"
 #include "libft.h"
 #include "ftprintf.h"
+#include "so_long.h"
 
-t_bool	map_validator_filename(t_ftconfig *config, t_map *map)
+/*
+** TODO: Check fichiers qui s'appelleraient uniquement .ber
+** Gérer aussi ./.ber ou ./map/.ber
+*/
+t_bool	map_validator_filename(t_map *map)
 {
-	if (ftconfig_get_boolean(config, "enforce_ber_extension") == FALSE)
+	if (ftconfig_get_boolean(_config(), "enforce_ber_extension") == FALSE)
 		return (TRUE);
-	else if (!ft_ends_with((char *)map->raw.filename, ".ber"))
+	else if (!ft_ends_with((char *)map->file.name, ".ber"))
 		return (map_error(-1, E_BER_EXTENSION, NULL));
 	return (TRUE);
 }

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 21:07:39 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 22:48:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,15 @@ typedef struct s_game
 	t_map		map;
 }	t_game;
 
-/* game/ */
-t_bool	game_init(t_game *game, const char *mapfile);
-void	game_destroy(t_game *game);
-void	game_render(t_game *game, void (*renderer)(t_game *));
+/* Singleton Access */
+t_game		*_game(void);
+t_map		*_map(void);
+t_ftconfig	*_config(void);
+
+t_bool	game_init(const char *mapfile);
+void	game_destroy(void);
 
 /* config/ */
-t_bool	config_init(t_game *game, const char *mapfile);
+t_bool	config_init(const char *config);
 
 #endif

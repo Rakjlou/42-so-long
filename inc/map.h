@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:36:46 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 01:39:14 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 22:47:19 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,25 @@
 # define TILE_EXIT 'E'
 # define TILE_COLLECTIBLE 'C'
 
-typedef struct s_map_raw
+typedef struct s_map_file
 {
-	const char	*filename;
+	const char	*name;
 	t_lst		data;
-}	t_map_raw;
+}	t_map_file;
 
 typedef struct s_map
 {
-	t_map_raw		raw;
+	t_map_file		file;
 	t_tile			*tile;
 	unsigned int	length;
 	unsigned int	height;
-	t_bool			(*validate)(t_ftconfig *, struct s_map *);
-	t_bool			(*instanciate)(struct s_map *);
-	void			(*destroy)(struct s_map *);
 }	t_map;
 
 /* src/map/ */
-t_bool		map_init(t_ftconfig *config, t_map *map, const char *filename);
-t_bool		map_instanciate(t_map *map);
-void		map_destroy(t_map *map);
+t_bool		map_init(const char *filename);
+t_bool		map_validate();
+t_bool		map_instanciate();
+void		map_destroy();
 
 t_tile		*map_tile_get(t_map *map, unsigned int x, unsigned int y);
 

@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   validate.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:42:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 00:50:34 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 23:02:36 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_mode_default.h"
+#include "map_validation.h"
+#include "so_long.h"
 
-void	map_mode_default_init(t_map *map)
+/*
+** TODO: Trim le fichier map (lignes vides au debut et fin)
+*/
+t_bool	map_validate()
 {
-	map->validate = map_mode_default_validate;
-	map->instanciate = map_mode_default_instanciate;
-	map->destroy = map_mode_default_destroy;
+	t_map	*map;
+
+	map = _map();
+	return (map_validator_filename(map)
+		&& map_validator_rectangle(map)
+		&& map_validator_valid_chars_only(map)
+		&& map_validator_walls_surround(map)
+		&& map_validator_1spawn(map)
+		&& map_validator_1exit(map)
+		&& map_validator_1collectible(map));
 }

@@ -1,18 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   singleton.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 01:45:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 15:40:14 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/26 22:34:35 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/26 22:44:55 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+#include "libft.h"
 
-void	game_render(t_game *game, void (*renderer)(t_game *))
+t_game	*_game(void)
 {
-	renderer(game);
+	static t_bool	first = TRUE;
+	static t_game	game;
+
+	if (first == TRUE)
+	{
+		ft_bzero(&game, sizeof(t_game));
+		first = FALSE;
+	}
+	return (&game);
+}
+
+t_map	*_map(void)
+{
+	t_game	*game;
+
+	game = _game();
+	return (&game->map);
+}
+
+t_ftconfig	*_config(void)
+{
+	t_game	*game;
+
+	game = _game();
+	return (&game->config);
 }
