@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:06:56 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 00:04:33 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 21:07:30 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_map_error
 	char	*line;
 	char	*message;
 }	t_map_error;
-
 
 /* src/map/error.c */
 t_map_error	*map_error_new(size_t line_number, char *message, char *line);

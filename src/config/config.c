@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:49:44 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 23:30:45 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 21:12:02 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 static t_bool	config_has_mandatory_keys(t_ftconfig *config)
 {
 	int			i;
-	static char	*mandatory_keys[3] = {
+	static char	*mandatory_keys[4] = {
 		"init_mlx",
 		"enforce_ber_extension",
 		"map_mode",
+		"renderer"
 	};
 
 	i = 0;
-	while (i < 3)
+	while (i < 4)
 	{
 		if (ftconfig_get(config, mandatory_keys[i]) == NULL)
 			return (fterr_set(MISS_CONFIG_KEY, mandatory_keys[i], NULL), FALSE);

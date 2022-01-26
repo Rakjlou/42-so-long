@@ -6,11 +6,13 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 04:49:17 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 14:34:12 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 21:21:23 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftlst.h"
+
+
 #include <stdlib.h>
 
 void	lst_destroy_nodes(t_lst *lst, void (*del)(void *))

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:54:06 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 00:53:05 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 21:08:51 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,4 @@ void	map_mode_pro_destroy(t_map *map);
 t_bool	map_mode_pro_validate(t_ftconfig *config, t_map *map);
 t_bool	map_mode_pro_instanciate(t_map *map);
 
-# endif
+#endif
