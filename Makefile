@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/26 01:40:06 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/26 15:36:17 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = src/main.c \
  	src/config/config.c \
  	src/game/init.c \
  	src/game/destroy.c \
+ 	src/game/render.c \
  	src/map/init.c \
  	src/map/error.c \
  	src/map/destroy.c \
