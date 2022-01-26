@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1collectible.c                                     :+:      :+:    :+:   */
+/*   tile.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 00:57:02 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 19:36:46 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/26 01:36:22 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_validation.h"
+#ifndef TILE_H
+# define TILE_H
 
-t_bool	map_validator_1collectible(t_ftconfig *config, t_map *map)
+typedef struct s_tile_state
 {
-	t_iter	iter;
-	char	*line;
-	int		i;
+	void	*state;
+	void	*free;
+}	t_tile_state;
 
-	(void)config;
-	iter_init(&iter, &map->raw.data, DESC);
-	while (iter_next(&iter))
-	{
-		line = (char *)iter.data;
-		i = 0;
-		while (line[i])
-		{
-			if (line[i] == TILE_COLLECTIBLE)
-				return (TRUE);
-			++i;
-		}
-	}
-	return (map_error(-1, E_NO_COLLECTIBLE, NULL));
-}
+typedef struct s_tile
+{
+	unsigned char	type;
+	t_tile_state	state;
+	unsigned int	x;
+	unsigned int	y;
+}	t_tile;
+
+void	tile_state_factory(t_tile *tile);
+void	tile_init(t_tile *tile,
+			unsigned char type,
+			unsigned int x,
+			unsigned int y);
+#endif

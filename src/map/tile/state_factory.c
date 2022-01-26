@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1collectible.c                                     :+:      :+:    :+:   */
+/*   state_factory.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 00:57:02 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/26 01:28:29 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/26 01:40:22 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_validation.h"
+#include "tile.h"
+#include <stddef.h>
 
-t_bool	map_validator_1collectible(t_ftconfig *config, t_map *map)
+void	tile_state_factory(t_tile *tile)
 {
-	t_iter	iter;
-	char	*line;
-	int		i;
+	static void	(*state_init[256])(t_tile_state *) = {0};
 
-	(void)config;
-	iter_init(&iter, &map->raw.data, DESC);
-	while (iter_next(&iter))
-	{
-		line = (char *)iter.data;
-		i = 0;
-		while (line[i])
-		{
-			if (line[i] == TILE_COLLECTIBLE)
-				return (TRUE);
-			++i;
-		}
-	}
-	return (map_error(-1, E_NO_COLLECTIBLE, NULL));
+	if (state_init[tile->type] == NULL)
+		return ;
+	state_init[tile->type](&tile->state);
 }

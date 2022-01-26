@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1collectible.c                                     :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 00:57:02 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 23:42:52 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/26 00:50:34 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map_validation.h"
+#include "map_mode_default.h"
 
-t_bool	map_validator_1collectible(t_ftconfig *config, t_map *map)
+void	map_mode_default_init(t_map *map)
 {
-	t_iter	iter;
-	char	*line;
-	int		i;
-
-	(void)config;
-	iter_init(&iter, &map->raw.data, DESC);
-	while (iter_next(&iter))
-	{
-		line = (char *)iter.data;
-		i = 0;
-		while (line[i])
-		{
-			if (line[i] == TILE_COLLECTIBLE)
-				return (TRUE);
-			++i;
-		}
-	}
-	return (map_error(-1, E_NO_COLLECTIBLE, NULL));
+	map->validate = map_mode_default_validate;
+	map->instanciate = map_mode_default_instanciate;
+	map->destroy = map_mode_default_destroy;
 }

@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   map_mode_default.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 22:11:30 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 22:16:55 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/25 23:54:06 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/25 23:58:14 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
-#include <stdlib.h>
+#ifndef MAP_MODE_DEFAULT_H
+# define MAP_MODE_DEFAULT_H
 
-void	map_free(t_map *map)
-{
-	lst_destroy_nodes(&map->raw.data, free);
-	ft_bzero(map, sizeof(t_map));
-}
+# include "map.h"
+
+void	map_mode_default_init(t_map *map);
+void	map_mode_default_destroy(t_map *map);
+t_bool	map_mode_default_validate(t_ftconfig *config, t_map *map);
+t_bool	map_mode_default_instanciate(t_map *map);
+
+# endif

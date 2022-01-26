@@ -6,11 +6,11 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:31:47 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 21:18:07 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 00:47:23 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
+#include "map_validation.h"
 #include "libft.h"
 #include "errors.h"
 #include <stdlib.h>

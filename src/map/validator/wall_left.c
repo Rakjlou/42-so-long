@@ -6,11 +6,11 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 21:57:26 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 00:56:50 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
+#include "map_validation.h"
 
 t_bool	map_validator_wall_left(t_ftconfig *config, t_map *map)
 {

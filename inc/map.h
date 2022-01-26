@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:36:46 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 22:21:34 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 01:39:14 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MAP_H
 
 # include "ftconfig.h"
+# include "tile.h"
 
 # define E_ROWS "not enough rows"
 # define E_COLS "not enough columns"
@@ -43,35 +44,22 @@ typedef struct s_map_raw
 	t_lst		data;
 }	t_map_raw;
 
-typedef struct s_map_error
-{
-	size_t	line_number;
-	char	*line;
-	char	*message;
-}	t_map_error;
-
 typedef struct s_map
 {
-	t_map_raw	raw;
+	t_map_raw		raw;
+	t_tile			*tile;
+	unsigned int	length;
+	unsigned int	height;
+	t_bool			(*validate)(t_ftconfig *, struct s_map *);
+	t_bool			(*instanciate)(struct s_map *);
+	void			(*destroy)(struct s_map *);
 }	t_map;
 
 /* src/map/ */
 t_bool		map_init(t_ftconfig *config, t_map *map, const char *filename);
-void		map_free(t_map *map);
-t_map_error	*map_error_new(size_t line_number, char *message, char *line);
-t_bool		map_error(size_t line_number, char *message, char *line);
+t_bool		map_instanciate(t_map *map);
+void		map_destroy(t_map *map);
 
-/* src/map/validator */
-t_bool		map_validator_filename(t_ftconfig *config, t_map *map);
-t_bool		map_validator_rectangle(t_ftconfig *config, t_map *map);
-t_bool		map_validator_wall_top(t_ftconfig *config, t_map *map);
-t_bool		map_validator_wall_bottom(t_ftconfig *config, t_map *map);
-t_bool		map_validator_wall_left(t_ftconfig *config, t_map *map);
-t_bool		map_validator_wall_right(t_ftconfig *config, t_map *map);
-t_bool		map_validator_walls_surround(t_ftconfig *config, t_map *map);
-t_bool		map_validator_1collectible(t_ftconfig *config, t_map *map);
-t_bool		map_validator_1spawn(t_ftconfig *config, t_map *map);
-t_bool		map_validator_1exit(t_ftconfig *config, t_map *map);
-t_bool		map_validator_valid_chars_only(t_ftconfig *config, t_map *map);
+t_tile		*map_tile_get(t_map *map, unsigned int x, unsigned int y);
 
 #endif

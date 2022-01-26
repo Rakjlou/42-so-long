@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:49:44 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 19:30:10 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/25 23:30:45 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static t_bool	config_has_mandatory_keys(t_ftconfig *config)
 	{
 		if (ftconfig_get(config, mandatory_keys[i]) == NULL)
 			return (fterr_set(MISS_CONFIG_KEY, mandatory_keys[i], NULL), FALSE);
+		if (ftconfig_get_single(config, mandatory_keys[i]) == NULL)
+			return (fterr_set(MISS_CONFIG_VAL, mandatory_keys[i], NULL), FALSE);
 		++i;
 	}
 	return (TRUE);

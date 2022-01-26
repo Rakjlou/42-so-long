@@ -6,12 +6,11 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/25 22:16:36 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/26 01:40:06 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
-
 
 SRC = src/main.c \
  	src/errors/register.c \
@@ -20,7 +19,18 @@ SRC = src/main.c \
  	src/game/destroy.c \
  	src/map/init.c \
  	src/map/error.c \
- 	src/map/free.c \
+ 	src/map/destroy.c \
+ 	src/map/get.c \
+ 	src/map/tile/init.c \
+ 	src/map/tile/state_factory.c \
+	src/map/mode/default/init.c \
+	src/map/mode/default/validate.c \
+	src/map/mode/default/instanciate.c \
+	src/map/mode/default/destroy.c \
+	src/map/mode/pro/init.c \
+	src/map/mode/pro/validate.c \
+	src/map/mode/pro/instanciate.c \
+	src/map/mode/pro/destroy.c \
 	src/map/validator/1collectible.c \
 	src/map/validator/1exit.c \
 	src/map/validator/1spawn.c \
@@ -32,15 +42,6 @@ SRC = src/main.c \
 	src/map/validator/walls_surround.c \
 	src/map/validator/wall_top.c \
 	src/map/validator/valid_chars_only.c \
-
-
-# SRC = main.c \
-# 	game.c \
-# 	mlx.c \
-# 	config.c \
-# 	config_get.c \
-# 	map.c \
-# 	errors/register.c \
 
 OBJ = $(SRC:.c=.o)
 
