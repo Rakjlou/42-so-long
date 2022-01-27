@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:06:56 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 23:31:25 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/27 01:06:27 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define E_INVALID_MAP_FILENAME "The map file must be named MAPNAME.ber"
 # define E_INVALID_MAP_LINE "The map has an invalid line"
 # define E_INVALID_MAP "Invalid map"
+# define E_MLX_FAILURE "MiniLibX failed"
 # define E_FAILED_MALLOC "Malloc has failed"
 # define E_MISS_CONFIG_KEY "Key %s is missing in config file\n"
 # define E_MISS_CONFIG_VAL "Key %s has no value in config file\n"
@@ -37,6 +38,7 @@ typedef enum e_error_code
 	FAILED_MALLOC,
 	MISS_CONFIG_KEY,
 	MISS_CONFIG_VAL,
+	MLX_FAILURE,
 	UNKNOWN
 }	t_error_code;
 

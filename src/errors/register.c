@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 14:59:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 00:44:06 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/27 01:06:49 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	errors_register(void)
 	fterr_register(INVALID_MAP_FILENAME, E_INVALID_MAP_FILENAME, error_print);
 	fterr_register(INVALID_MAP_LINE, E_INVALID_MAP_LINE, error_print);
 	fterr_register(INVALID_MAP, E_INVALID_MAP, error_invalid_map);
+	fterr_register(MLX_FAILURE, E_MLX_FAILURE, error_print);
 	fterr_register(FAILED_MALLOC, E_FAILED_MALLOC, error_print);
 	fterr_register(UNKNOWN, E_DEFAULT, error_print);
 }

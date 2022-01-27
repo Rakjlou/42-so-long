@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/27 00:38:45 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/27 01:03:07 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,8 @@ NAME = so_long
 SRC = src/main.c \
  	src/errors/register.c \
  	src/config/config.c \
+ 	src/renderer/init.c \
+ 	src/renderer/destroy.c \
  	src/game/init.c \
  	src/game/destroy.c \
  	src/game/singleton.c \

@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   renderer.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 01:04:33 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/27 00:54:24 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/27 01:04:47 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef RENDERER_H
+# define RENDERER_H
 
-# include "ftconfig.h"
-# include "map.h"
-# include "renderer.h"
+# include "libft.h"
 
-typedef struct s_game
+typedef void	t_mlx_core;
+typedef void	t_mlx_window;
+
+typedef struct s_renderer
 {
-	t_ftconfig	config;
-	t_map		map;
-	t_renderer	renderer;
-}	t_game;
+	t_mlx_core		*core;
+	t_mlx_window	*window;
+}	t_renderer;
 
-/* Singleton Access */
-t_game		*_game(void);
-t_ftconfig	*_config(void);
+t_renderer	*_renderer();
 
-t_bool	game_init(const char *mapfile);
-void	game_destroy(void);
-
-/* config/ */
-t_bool	config_init(const char *config);
+t_bool		renderer_init(void);
+void		renderer_destroy(void);
 
 #endif

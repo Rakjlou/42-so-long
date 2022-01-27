@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 22:34:35 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 22:44:55 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/27 00:56:46 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,12 @@ t_ftconfig	*_config(void)
 
 	game = _game();
 	return (&game->config);
+}
+
+t_renderer	*_renderer(void)
+{
+	t_game	*game;
+
+	game = _game();
+	return (&game->renderer);
 }
