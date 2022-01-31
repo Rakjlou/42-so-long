@@ -58,5 +58,6 @@ t_tile	*tile_collectible_new(
 	tile->p.collides = TRUE;
 	tile->p.destroy = tile_collectible_destroy;
 	tile->p.on_interact = tile_collectible_interact;
+	tile->p.render = tile_render;
 	return (as_tile(tile));
 }

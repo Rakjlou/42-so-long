@@ -49,3 +49,11 @@ t_renderer	*_renderer(void)
 	game = _game();
 	return (&game->renderer);
 }
+
+t_character	*_player(void)
+{
+	t_game	*game;
+
+	game = _game();
+	return (&game->player);
+}

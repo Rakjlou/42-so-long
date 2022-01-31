@@ -15,6 +15,15 @@
 #include "errors.h"
 #include "mlx.h"
 
+void	renderer_clear_window(void)
+{
+	t_renderer	*renderer;
+
+	renderer = _renderer();
+	mlx_clear_window(renderer->core, renderer->window);
+
+}
+
 t_bool	renderer_init(void)
 {
 	t_renderer	*renderer;

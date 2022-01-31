@@ -30,5 +30,6 @@ t_tile	*tile_wall_new(
 	tile->x = x;
 	tile->y = y;
 	tile->collides = TRUE;
+	tile->render = tile_render;
 	return (tile);
 }

@@ -28,5 +28,6 @@ t_renderer	*_renderer(void);
 
 t_bool		renderer_init(void);
 void		renderer_destroy(void);
+void		renderer_clear_window(void);
 
 #endif

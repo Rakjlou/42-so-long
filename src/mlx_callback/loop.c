@@ -14,6 +14,12 @@
 
 int	loop_hook_callback(void)
 {
+	t_character	*player;
+
+	if (_game()->input.close)
+		close_callback();
+	player = _player();
+	player->update(player);
 	game_render();
 	return (1);
 }

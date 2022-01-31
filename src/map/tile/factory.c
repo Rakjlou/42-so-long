@@ -27,6 +27,7 @@ static t_tile	*tile_default_factory(
 	tile->type = type;
 	tile->x = x;
 	tile->y = y;
+	tile->render = tile_render;
 	return (tile);
 }
 

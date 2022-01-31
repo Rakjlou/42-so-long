@@ -10,10 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
 #include "ftprintf.h"
 
 int	key_hook_callback(int keycode)
 {
-	ftprintf("KEY HOOK %d\n", keycode);
+	t_game		*game;
+	t_input		*input;
+
+	game = _game();
+	input = &game->input;
+	if (keycode == KEYCODE_UP)
+		input->up = TRUE;
+	else if (keycode == KEYCODE_DOWN)
+		input->down = TRUE;
+	else if (keycode == KEYCODE_RIGHT)
+		input->right = TRUE;
+	else if (keycode == KEYCODE_LEFT)
+		input->left = TRUE;
+	else if (keycode == KEYCODE_SPACE)
+		input->attack = TRUE;
+	else if (keycode == KEYCODE_ESC)
+		input->close = TRUE;
+	ftprintf("key %d\n", keycode);
 	return (1);
 }

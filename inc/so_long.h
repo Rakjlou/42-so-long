@@ -16,12 +16,43 @@
 # include "ftconfig.h"
 # include "map.h"
 # include "renderer.h"
+# include "character.h"
+
+# ifdef __linux__
+#  define KEYCODE_UP 65362
+#  define KEYCODE_RIGHT 65363
+#  define KEYCODE_DOWN 65364
+#  define KEYCODE_LEFT 65361
+#  define KEYCODE_SPACE 32
+#  define KEYCODE_ESC 65307
+# elif _APPLE_
+#  define KEYCODE_UP 65362
+#  define KEYCODE_RIGHT 65363
+#  define KEYCODE_DOWN 65364
+#  define KEYCODE_LEFT 65361
+#  define KEYCODE_SPACE 32
+#  define KEYCODE_ESC 65307
+# else
+const char	g_error_platform_not_supported[0];
+# endif
+
+typedef struct s_input
+{
+	t_bool	right;
+	t_bool	left;
+	t_bool	up;
+	t_bool	down;
+	t_bool	attack;
+	t_bool	close;
+}	t_input;
 
 typedef struct s_game
 {
 	t_ftconfig	config;
 	t_map		map;
 	t_renderer	renderer;
+	t_character	player;
+	t_input		input;
 }	t_game;
 
 /* Singleton Access */

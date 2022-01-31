@@ -30,6 +30,7 @@ typedef struct s_tile
 	void			(*on_leaving)(struct s_tile *);
 	void			(*on_interact)(struct s_tile *);
 	void			(*destroy)(struct s_tile *);
+	void			(*render)(struct s_tile *);
 }	t_tile;
 
 typedef struct s_tile_bistate
@@ -41,6 +42,7 @@ typedef struct s_tile_bistate
 
 t_tile	*tile_factory(unsigned int type, unsigned int x, unsigned int y);
 t_tile	*as_tile(void *child);
+void	tile_render(t_tile *tile);
 void	tile_default_destroy(t_tile *tile);
 
 t_tile	*tile_collectible_new(

@@ -18,6 +18,7 @@ void	game_destroy(void)
 	t_game	*game;
 
 	map_destroy();
+	player_destroy();
 	ftconfig_destroy(_config());
 	fterr_destroy();
 	renderer_destroy();

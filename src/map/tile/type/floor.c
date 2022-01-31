@@ -29,5 +29,6 @@ t_tile	*tile_floor_new(
 	tile->type = type;
 	tile->x = x;
 	tile->y = y;
+	tile->render = tile_render;
 	return (as_tile(tile));
 }

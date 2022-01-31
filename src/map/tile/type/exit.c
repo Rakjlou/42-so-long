@@ -36,5 +36,6 @@ t_tile	*tile_exit_new(
 	tile->p.x = x;
 	tile->p.y = y;
 	tile->p.allow_stepping = tile_exit_allow_stepping;
+	tile->p.render = tile_render;
 	return (as_tile(tile));
 }

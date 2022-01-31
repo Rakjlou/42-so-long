@@ -22,6 +22,8 @@ SRC = src/main.c \
  	src/mlx_callback/key.c \
  	src/mlx_callback/loop.c \
  	src/mlx_callback/mouse.c \
+ 	src/character/init.c \
+ 	src/character/destroy.c \
  	src/game/init.c \
  	src/game/destroy.c \
  	src/game/singleton.c \
@@ -34,6 +36,7 @@ SRC = src/main.c \
  	src/map/destroy.c \
  	src/map/instanciate.c \
  	src/map/validate.c \
+ 	src/map/tile/render.c \
  	src/map/tile/factory.c \
  	src/map/tile/as_tile.c \
  	src/map/tile/type/collectible.c \

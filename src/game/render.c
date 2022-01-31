@@ -27,16 +27,32 @@ static void	game_render_map(void)
 		y = 0;
 		while (y < map->width)
 		{
+			if (y == _player()->y && x == _player()->x)
+			{
+				++y;
+				continue ;
+			}
 			tile = map->tile[(x * map->width) + y];
-			xpm_image_render(tile->image, x, y);
+			tile->render(tile);
 			++y;
 		}
 		++x;
 	}
 }
 
+static void	game_render_characters(void)
+{
+	t_game		*game;
+	t_character	*player;
+
+	game = _game();
+	player = &game->player;
+	player->render(player);
+}
+
 int	game_render(void)
 {
 	game_render_map();
+	game_render_characters();
 	return (1);
 }

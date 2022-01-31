@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
 #include "map_validation.h"
 
 t_bool	map_validator_1spawn(t_map *map)
@@ -28,7 +29,11 @@ t_bool	map_validator_1spawn(t_map *map)
 		while (line[i])
 		{
 			if (line[i] == TILE_SPAWN)
+			{
+				_game()->player.x = (unsigned int)iter.pos;
+				_game()->player.y = (unsigned int)i;
 				++count;
+			}
 			++i;
 		}
 	}

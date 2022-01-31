@@ -17,11 +17,13 @@
 
 t_bool	game_init(const char *mapfile)
 {
+	ft_bzero(_game(), sizeof(t_game));
 	errors_register();
 	return (
 		config_init("config.txt")
 		&& map_init(mapfile)
 		&& renderer_init()
+		&& player_init()
 		&& map_instanciate()
 	);
 }
