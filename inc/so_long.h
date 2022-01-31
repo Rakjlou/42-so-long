@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 01:04:33 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/29 18:57:45 by osboxes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_ftconfig	*_config(void);
 
 t_bool	game_init(const char *mapfile);
 void	game_destroy(void);
+int		game_render(void);
 
 /* config/ */
 t_bool	config_init(const char *config);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:06:56 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 01:06:27 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/29 16:11:29 by osboxes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@
 # define E_INVALID_MAP_FILENAME "The map file must be named MAPNAME.ber"
 # define E_INVALID_MAP_LINE "The map has an invalid line"
 # define E_INVALID_MAP "Invalid map"
+# define E_IMG_LOAD "MLX couldn't load image %s"
 # define E_MLX_FAILURE "MiniLibX failed"
 # define E_FAILED_MALLOC "Malloc has failed"
-# define E_MISS_CONFIG_KEY "Key %s is missing in config file\n"
-# define E_MISS_CONFIG_VAL "Key %s has no value in config file\n"
+# define E_MISS_CONFIG_KEY "Key %s is missing in config file"
+# define E_MISS_CONFIG_VAL "Key %s has no value in config file"
 # define E_DEFAULT "Unknown error"
 
 typedef enum e_error_code
@@ -39,6 +40,7 @@ typedef enum e_error_code
 	MISS_CONFIG_KEY,
 	MISS_CONFIG_VAL,
 	MLX_FAILURE,
+	IMG_LOAD,
 	UNKNOWN
 }	t_error_code;
 

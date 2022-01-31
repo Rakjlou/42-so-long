@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:36:46 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 01:04:22 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/29 19:08:00 by osboxes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_map
 {
 	t_map_file		file;
 	t_tile			**tile;
-	unsigned int	length;
+	unsigned int	width;
 	unsigned int	height;
 }	t_map;
 
@@ -57,8 +57,8 @@ t_map		*_map(void);
 
 /* src/map/ */
 t_bool		map_init(const char *filename);
-t_bool		map_validate();
-t_bool		map_instanciate();
-void		map_destroy();
+t_bool		map_validate(void);
+t_bool		map_instanciate(void);
+void		map_destroy(void);
 
 #endif

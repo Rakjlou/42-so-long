@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   factory.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 00:07:33 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 00:39:41 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/31 07:46:31 by osboxes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,45 +14,44 @@
 #include "errors.h"
 #include "libft.h"
 
-static void	tile_default_hydrate(t_tile *tile)
-{
-	tile->sprite = 42;
-}
-
-static t_tile	*tile_default_factory(void)
+static t_tile	*tile_default_factory(
+					unsigned int type,
+					unsigned int x,
+					unsigned int y)
 {
 	t_tile		*tile;
 
 	tile = ft_calloc(sizeof(t_tile), 1);
 	if (tile == NULL)
 		return (fterr_set_error(FAILED_MALLOC), NULL);
-	tile_default_hydrate(tile);
+	tile->type = type;
+	tile->x = x;
+	tile->y = y;
 	return (tile);
 }
 
-static t_tile	*tile_chest_factory(void)
+static void	init_custom_tiles(
+	t_tile *(*factory[256])(unsigned int, unsigned int, unsigned int))
 {
-	t_tile_chest	*tile;
-
-	tile = ft_calloc(sizeof(t_tile_chest), 1);
-	if (tile == NULL)
-		return (fterr_set_error(FAILED_MALLOC), NULL);
-	tile_default_hydrate(as_tile(tile));
-	tile->opened = FALSE;
-	return (as_tile(tile));
+	factory['0'] = tile_floor_new;
+	factory['P'] = tile_floor_new;
+	factory['1'] = tile_wall_new;
+	factory['E'] = tile_exit_new;
+	factory['C'] = tile_collectible_new;
 }
 
-static void	init_custom_tiles(t_tile *(*factory[256])(void))
+void	tile_default_destroy(t_tile *tile)
 {
-	factory['C'] = tile_chest_factory;
+	xpm_image_destroy(tile->image);
 }
 
-t_tile	*tile_factory(unsigned int type)
+t_tile	*tile_factory(unsigned int type, unsigned int x, unsigned int y)
 {
-	static t_tile	*(*factory[256])(void) = {0};
+	static t_tile	*(*factory[256])(
+		unsigned int, unsigned int, unsigned int) = {0};
 
 	init_custom_tiles(factory);
 	if (factory[type] != NULL)
-		return (factory[type]());
-	return (tile_default_factory());
+		return (factory[type](type, x, y));
+	return (tile_default_factory(type, x, y));
 }

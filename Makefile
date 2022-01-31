@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
+#    By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/27 01:03:07 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/01/31 07:49:22 by osboxes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,10 @@ SRC = src/main.c \
  	src/game/init.c \
  	src/game/destroy.c \
  	src/game/singleton.c \
+ 	src/game/render.c \
+ 	src/image/init.c \
+ 	src/image/destroy.c \
+ 	src/image/render.c \
  	src/map/init.c \
  	src/map/error.c \
  	src/map/destroy.c \
@@ -27,6 +31,10 @@ SRC = src/main.c \
  	src/map/validate.c \
  	src/map/tile/factory.c \
  	src/map/tile/as_tile.c \
+ 	src/map/tile/type/collectible.c \
+ 	src/map/tile/type/exit.c \
+ 	src/map/tile/type/floor.c \
+ 	src/map/tile/type/wall.c \
 	src/map/validator/1collectible.c \
 	src/map/validator/1exit.c \
 	src/map/validator/1spawn.c \
@@ -82,6 +90,6 @@ re: fclean all
 
 test: all
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes \
-	./so_long map/simple.ber
+	./so_long map/bigger.ber
 
 .PHONY: clean fclean re libft mlx

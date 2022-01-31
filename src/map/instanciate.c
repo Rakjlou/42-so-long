@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instanciate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:42:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 00:40:36 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/29 19:18:45 by osboxes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static void	map_set_length_height(t_map *map)
 {
-	map->length = ft_strlen((char *)lst_data_at(&map->file.data, 0));
+	map->width = ft_strlen((char *)lst_data_at(&map->file.data, 0));
 	map->height = map->file.data.size;
 }
 
@@ -35,10 +35,10 @@ static t_bool	map_tiles_init(t_map *map)
 	{
 		y = 0;
 		line = (char *)iter.data;
-		while (y < map->length)
+		while (y < map->width)
 		{
-			index = (x * map->length) + y;
-			map->tile[index] = tile_factory(line[y]);
+			index = (x * map->width) + y;
+			map->tile[index] = tile_factory(line[y], x, y);
 			if (map->tile[index] == NULL)
 				return (fterr_set_error(FAILED_MALLOC), FALSE);
 			++y;
@@ -50,7 +50,7 @@ static t_bool	map_tiles_init(t_map *map)
 
 static t_bool	map_init_tiles_tab(t_map *map)
 {
-	map->tile = ft_calloc(sizeof(t_tile *), map->height * map->length);
+	map->tile = ft_calloc(sizeof(t_tile *), map->height * map->width);
 	if (map->tile == NULL)
 		return (fterr_set_error(FAILED_MALLOC), FALSE);
 	return (TRUE);
