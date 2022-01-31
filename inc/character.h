@@ -3,11 +3,12 @@
 
 # include "libft.h"
 # include "image.h"
+# include "animation.h"
 
 typedef struct s_character
 {
 	t_uvector	pos;
-	t_xpm_image	*image;
+	t_animation	*animation;
 	void		(*render)(struct s_character *);
 	void		(*update)(struct s_character *);
 }	t_character;

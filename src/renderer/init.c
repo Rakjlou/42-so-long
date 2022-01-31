@@ -38,6 +38,12 @@ t_bool	renderer_init(void)
 			(int)map->size.y * TILE_PIXEL_SIZE,
 			(int)map->size.x * TILE_PIXEL_SIZE,
 			GAME_NAME);
+	mlx_key_hook(renderer->window, key_hook_callback, NULL);
+	mlx_hook(renderer->window, 2, 0, key_hook_callback, NULL);
+	mlx_mouse_hook(renderer->window, mouse_hook_callback, NULL);
+	mlx_expose_hook(renderer->window, expose_hook_callback, NULL);
+	mlx_loop_hook(renderer->core, loop_hook_callback, NULL);
+	mlx_hook(renderer->window, 17, 0, close_callback, NULL);
 	if (renderer->window == NULL)
 		return (fterr_set_error(MLX_FAILURE), FALSE);
 	return (TRUE);

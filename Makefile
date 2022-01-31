@@ -24,6 +24,9 @@ SRC = src/main.c \
  	src/mlx_callback/mouse.c \
  	src/character/init.c \
  	src/character/destroy.c \
+ 	src/animation/init.c \
+ 	src/animation/destroy.c \
+ 	src/animation/render.c \
  	src/game/init.c \
  	src/game/destroy.c \
  	src/game/singleton.c \

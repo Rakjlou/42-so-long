@@ -5,7 +5,7 @@
 
 void	character_destroy(t_character *character)
 {
-	xpm_image_destroy(character->image);
+	animation_destroy(character->animation);
 	free(character);
 }
 
@@ -14,5 +14,5 @@ void	player_destroy(void)
 	t_character	*player;
 
 	player = _player();
-	xpm_image_destroy(player->image);
+	animation_destroy(player->animation);
 }

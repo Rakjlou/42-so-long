@@ -24,6 +24,7 @@ t_xpm_image	*xpm_image_new(const char *file)
 	image = ft_calloc(sizeof(t_xpm_image), 1);
 	if (image == NULL)
 		return (fterr_set_error(FAILED_MALLOC), NULL);
+	image->filename = file;
 	image->p.mlx_obj = mlx_xpm_file_to_image(
 			_renderer()->core,
 			(char *)file,
