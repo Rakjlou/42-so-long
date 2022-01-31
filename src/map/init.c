@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:34:24 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 23:50:43 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/31 08:01:53 by osboxes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 #include "errors.h"
 #include "libft.h"
 #include <limits.h>
+
+static void	map_set_length_height(t_map *map)
+{
+	map->width = ft_strlen((char *)lst_data_at(&map->file.data, 0));
+	map->height = map->file.data.size;
+}
 
 static t_bool	map_readl(const char *line, void *data)
 {
@@ -46,5 +52,6 @@ t_bool	map_init(const char *filename)
 		return (fterr_set(MAP_FILE_OPEN, (void *)filename, NULL), FALSE);
 	else if (status == FTRF_E_READL)
 		return (FALSE);
-	return (map_validate() && map_instanciate());
+	map_set_length_height(map);
+	return (map_validate());
 }

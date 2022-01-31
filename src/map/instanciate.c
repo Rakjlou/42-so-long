@@ -6,7 +6,7 @@
 /*   By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:42:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/29 19:18:45 by osboxes          ###   ########.fr       */
+/*   Updated: 2022/01/31 08:01:56 by osboxes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "errors.h"
 #include "ftprintf.h"
 #include "so_long.h"
-
-static void	map_set_length_height(t_map *map)
-{
-	map->width = ft_strlen((char *)lst_data_at(&map->file.data, 0));
-	map->height = map->file.data.size;
-}
 
 static t_bool	map_tiles_init(t_map *map)
 {
@@ -61,6 +55,5 @@ t_bool	map_instanciate(void)
 	t_map	*map;
 
 	map = _map();
-	map_set_length_height(map);
 	return (map_init_tiles_tab(map) && map_tiles_init(map));
 }

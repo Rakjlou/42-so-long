@@ -6,7 +6,7 @@
 /*   By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:36:46 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 07:46:04 by osboxes          ###   ########.fr       */
+/*   Updated: 2022/01/31 07:58:35 by osboxes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "libft.h"
 # include "image.h"
+
+# define TILE_PIXEL_SIZE 64
 
 typedef struct s_tile
 {
