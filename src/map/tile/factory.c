@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   factory.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 00:07:33 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 07:46:31 by osboxes          ###   ########.fr       */
+/*   Updated: 2022/01/31 14:23:40 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	tile_default_destroy(t_tile *tile)
 t_tile	*tile_factory(unsigned int type, unsigned int x, unsigned int y)
 {
 	static t_tile	*(*factory[256])(
-		unsigned int, unsigned int, unsigned int) = {0};
+			unsigned int, unsigned int, unsigned int) = {0};
 
 	init_custom_tiles(factory);
 	if (factory[type] != NULL)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: osboxes <osboxes@student.42.fr>            +#+  +:+       +#+         #
+#    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/31 07:49:22 by osboxes          ###   ########.fr        #
+#    Updated: 2022/01/31 14:17:57 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,11 @@ SRC = src/main.c \
  	src/config/config.c \
  	src/renderer/init.c \
  	src/renderer/destroy.c \
+ 	src/mlx_callback/close.c \
+ 	src/mlx_callback/expose.c \
+ 	src/mlx_callback/key.c \
+ 	src/mlx_callback/loop.c \
+ 	src/mlx_callback/mouse.c \
  	src/game/init.c \
  	src/game/destroy.c \
  	src/game/singleton.c \

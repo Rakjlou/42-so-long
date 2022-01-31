@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/31 14:10:25 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/31 14:24:11 by nsierra-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "tile.h"
 #include "errors.h"
 
 static t_bool	tile_exit_allow_stepping(t_tile *t)
 {
-	/* TODO: Check if player has pre requisites */
 	(void)t;
 	return (TRUE);
 }

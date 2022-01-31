@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 18:46:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:19:40 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/01/31 14:13:54 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/31 14:24:34 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include "errors.h"
-#include "libft.h"
 #include "ftprintf.h"
 
-t_bool	game_init(const char *mapfile)
+int	key_hook_callback(int keycode)
 {
-	errors_register();
-	return (
-		config_init("config.txt")
-		&& map_init(mapfile)
-		&& renderer_init()
-		&& map_instanciate()
-	);
+	ftprintf("KEY HOOK %d\n", keycode);
+	return (1);
 }

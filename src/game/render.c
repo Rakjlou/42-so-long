@@ -1,18 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/26 01:45:50 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/01/31 14:20:42 by nsierra-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 #include "ftprintf.h"
-
-static void	game_render_map_shell(t_map *map)
-{
-	t_iter			iter;
-	char			*line;
-
-	iter_init(&iter, &map->file.data, ASC);
-	while (iter_next(&iter))
-	{
-		line = (char *)iter.data;
-		ftprintf("%s\n", line);
-	}
-}
 
 static void	game_render_map(void)
 {
@@ -20,7 +19,6 @@ static void	game_render_map(void)
 	unsigned int	y;
 	t_map			*map;
 	t_tile			*tile;
-
 
 	x = 0;
 	map = _map();
@@ -37,10 +35,8 @@ static void	game_render_map(void)
 	}
 }
 
-int		game_render(void)
+int	game_render(void)
 {
-	(void)game_render_map_shell;
 	game_render_map();
-	/*game_render_map_shell(_map());*/
 	return (1);
 }
