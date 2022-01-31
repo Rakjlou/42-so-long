@@ -6,11 +6,10 @@
 
 typedef struct s_character
 {
-	unsigned int	x;
-	unsigned int	y;
-	t_xpm_image		*image;
-	void			(*render)(struct s_character *);
-	void			(*update)(struct s_character *);
+	t_uvector	pos;
+	t_xpm_image	*image;
+	void		(*render)(struct s_character *);
+	void		(*update)(struct s_character *);
 }	t_character;
 
 t_character	*_player(void);

@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "renderer.h"
-#include "map.h"
+#include "so_long.h"
 #include "errors.h"
 #include "mlx.h"
 
@@ -28,9 +27,7 @@ t_bool	renderer_init(void)
 {
 	t_renderer	*renderer;
 	t_map		*map;
-	char		*window_name;
 
-	window_name = "so_paint";
 	renderer = _renderer();
 	map = _map();
 	renderer->core = mlx_init();
@@ -38,9 +35,9 @@ t_bool	renderer_init(void)
 		return (fterr_set_error(MLX_FAILURE), FALSE);
 	renderer->window = mlx_new_window(
 			renderer->core,
-			(int)map->width * TILE_PIXEL_SIZE,
-			(int)map->height * TILE_PIXEL_SIZE,
-			window_name);
+			(int)map->size.y * TILE_PIXEL_SIZE,
+			(int)map->size.x * TILE_PIXEL_SIZE,
+			GAME_NAME);
 	if (renderer->window == NULL)
 		return (fterr_set_error(MLX_FAILURE), FALSE);
 	return (TRUE);

@@ -18,8 +18,8 @@
 
 static void	map_set_length_height(t_map *map)
 {
-	map->width = ft_strlen((char *)lst_data_at(&map->file.data, 0));
-	map->height = map->file.data.size;
+	map->size.y = ft_strlen((char *)lst_data_at(&map->file.data, 0));
+	map->size.x = map->file.data.size;
 }
 
 static t_bool	map_readl(const char *line, void *data)

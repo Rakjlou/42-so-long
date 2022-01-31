@@ -25,8 +25,8 @@ static t_tile	*tile_default_factory(
 	if (tile == NULL)
 		return (fterr_set_error(FAILED_MALLOC), NULL);
 	tile->type = type;
-	tile->x = x;
-	tile->y = y;
+	tile->pos.x = x;
+	tile->pos.y = y;
 	tile->render = tile_render;
 	return (tile);
 }

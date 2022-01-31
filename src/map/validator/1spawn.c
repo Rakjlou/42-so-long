@@ -30,8 +30,8 @@ t_bool	map_validator_1spawn(t_map *map)
 		{
 			if (line[i] == TILE_SPAWN)
 			{
-				_game()->player.x = (unsigned int)iter.pos;
-				_game()->player.y = (unsigned int)i;
+				_game()->player.pos.x = (unsigned int)iter.pos;
+				_game()->player.pos.y = (unsigned int)i;
 				++count;
 			}
 			++i;

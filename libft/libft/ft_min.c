@@ -16,3 +16,15 @@ int	ft_min(int a, int b)
 		return (a);
 	return (b);
 }
+
+unsigned int	ft_umin(unsigned int a, unsigned int b)
+{
+	if (a <= b)
+		return (a);
+	return (b);
+}
+
+unsigned int	ft_uimin(unsigned int a, unsigned int b)
+{
+	return ((unsigned int)ft_min((int)a, (int)b));
+}

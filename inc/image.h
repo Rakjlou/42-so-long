@@ -13,17 +13,16 @@
 #ifndef IMAGE_H
 # define IMAGE_H
 
+# include "libft.h"
+
 typedef struct s_image
 {
-	void	*mlx_obj;
-	char	*buffer;
-	int		x;
-	int		y;
-	int		height;
-	int		width;
-	int		line_size;
-	int		endian;
-	int		depth;
+	void		*mlx_obj;
+	char		*buffer;
+	t_vector	size;
+	int			line_size;
+	int			endian;
+	int			depth;
 }	t_image;
 
 typedef struct s_xpm_image

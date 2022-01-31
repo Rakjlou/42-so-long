@@ -27,8 +27,8 @@ t_tile	*tile_floor_new(
 	if (tile->image == NULL)
 		return (NULL);
 	tile->type = type;
-	tile->x = x;
-	tile->y = y;
+	tile->pos.x = x;
+	tile->pos.y = y;
 	tile->render = tile_render;
 	return (as_tile(tile));
 }

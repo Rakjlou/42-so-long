@@ -18,6 +18,8 @@
 # include "renderer.h"
 # include "character.h"
 
+# define GAME_NAME "so_paint"
+
 # ifdef __linux__
 #  define KEYCODE_UP 65362
 #  define KEYCODE_RIGHT 65363

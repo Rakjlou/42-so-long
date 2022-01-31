@@ -21,8 +21,7 @@
 typedef struct s_tile
 {
 	unsigned int	type;
-	unsigned int	x;
-	unsigned int	y;
+	t_vector		pos;
 	t_xpm_image		*image;
 	t_bool			collides;
 	t_bool			(*allow_stepping)(struct s_tile *);

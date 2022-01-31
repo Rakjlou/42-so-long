@@ -47,10 +47,9 @@ typedef struct s_map_file
 
 typedef struct s_map
 {
-	t_map_file		file;
-	t_tile			**tile;
-	unsigned int	width;
-	unsigned int	height;
+	t_map_file	file;
+	t_tile		**tile;
+	t_uvector	size;
 }	t_map;
 
 t_map		*_map(void);

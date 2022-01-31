@@ -29,9 +29,9 @@ static t_bool	map_tiles_init(t_map *map)
 	{
 		y = 0;
 		line = (char *)iter.data;
-		while (y < map->width)
+		while (y < map->size.y)
 		{
-			index = (x * map->width) + y;
+			index = (x * map->size.y) + y;
 			map->tile[index] = tile_factory(line[y], x, y);
 			if (map->tile[index] == NULL)
 				return (fterr_set_error(FAILED_MALLOC), FALSE);
@@ -44,7 +44,7 @@ static t_bool	map_tiles_init(t_map *map)
 
 static t_bool	map_init_tiles_tab(t_map *map)
 {
-	map->tile = ft_calloc(sizeof(t_tile *), map->height * map->width);
+	map->tile = ft_calloc(sizeof(t_tile *), map->size.x * map->size.y);
 	if (map->tile == NULL)
 		return (fterr_set_error(FAILED_MALLOC), FALSE);
 	return (TRUE);

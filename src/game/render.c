@@ -22,17 +22,17 @@ static void	game_render_map(void)
 
 	x = 0;
 	map = _map();
-	while (x < map->height)
+	while (x < map->size.x)
 	{
 		y = 0;
-		while (y < map->width)
+		while (y < map->size.y)
 		{
-			if (y == _player()->y && x == _player()->x)
+			if (y == _player()->pos.y && x == _player()->pos.x)
 			{
 				++y;
 				continue ;
 			}
-			tile = map->tile[(x * map->width) + y];
+			tile = map->tile[(x * map->size.y) + y];
 			tile->render(tile);
 			++y;
 		}

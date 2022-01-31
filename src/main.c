@@ -27,6 +27,7 @@ int	main(int ac, const char **av)
 	if (!game_init(av[1]))
 		return (fterr_print(), game_destroy(), 2);
 	mlx_key_hook(_renderer()->window, key_hook_callback, NULL);
+	mlx_hook(_renderer()->window, 2, 0, key_hook_callback, NULL);
 	mlx_mouse_hook(_renderer()->window, mouse_hook_callback, NULL);
 	mlx_expose_hook(_renderer()->window, expose_hook_callback, NULL);
 	mlx_loop_hook(_renderer()->core, loop_hook_callback, NULL);

@@ -19,7 +19,7 @@ static void	free_tiles(t_map *map)
 	t_tile			*tile;
 
 	i = 0;
-	while (i < map->height * map->width)
+	while (i < map->size.x * map->size.y)
 	{
 		tile = map->tile[i];
 		if (tile != NULL && tile->destroy == NULL)

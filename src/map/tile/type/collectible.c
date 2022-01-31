@@ -53,8 +53,8 @@ t_tile	*tile_collectible_new(
 	if (tile->image2 == NULL)
 		return (xpm_image_destroy(tile->p.image), NULL);
 	tile->p.type = type;
-	tile->p.x = x;
-	tile->p.y = y;
+	tile->p.pos.x = x;
+	tile->p.pos.y = y;
 	tile->p.collides = TRUE;
 	tile->p.destroy = tile_collectible_destroy;
 	tile->p.on_interact = tile_collectible_interact;

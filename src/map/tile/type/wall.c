@@ -27,8 +27,8 @@ t_tile	*tile_wall_new(
 	if (tile->image == NULL)
 		return (NULL);
 	tile->type = type;
-	tile->x = x;
-	tile->y = y;
+	tile->pos.x = x;
+	tile->pos.y = y;
 	tile->collides = TRUE;
 	tile->render = tile_render;
 	return (tile);
