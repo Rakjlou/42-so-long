@@ -36,6 +36,7 @@ static t_bool	validate_non_strict(void)
 		&& map_validator_valid_chars_only(map)
 		&& map_validator_1spawn(map)
 		&& map_validator_1exit(map)
+		&& map_validator_1collectible(map)
 		&& map_validator_enemies(map));
 }
 

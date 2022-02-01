@@ -110,4 +110,7 @@ test: all
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes \
 	./so_long map/bigger.ber
 
+gdb: all
+	gdb --args ./so_long map/bigger.ber
+
 .PHONY: clean fclean re libft mlx

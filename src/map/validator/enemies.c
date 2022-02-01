@@ -17,13 +17,13 @@
 
 static t_bool	init_enemy_array(int count)
 {
-	t_character	**enemy;
+	t_game		*game;
 
 	if (count == 0)
 		return (TRUE);
-	enemy = _game()->enemy;
-	enemy = ft_calloc(sizeof(t_character *), count + 1);
-	if (enemy == NULL)
+	game = _game();
+	game->enemy = ft_calloc(sizeof(t_character *), count + 1);
+	if (game->enemy == NULL)
 		return (fterr_set_error(FAILED_MALLOC), FALSE);
 	return (TRUE);
 }
