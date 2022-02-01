@@ -32,12 +32,16 @@
 # define E_INVALID_CHAR "line has an invalid char"
 
 # define VALID_TILE_CHARS "10PEC"
-# define VALID_EXTRA_TILE_CHARS "10PEC"
+# define VALID_EXTRA_TILE_CHARS "10PEC<>v^"
 # define TILE_WALL '1'
 # define TILE_EMPTY '0'
 # define TILE_SPAWN 'P'
 # define TILE_EXIT 'E'
 # define TILE_COLLECTIBLE 'C'
+# define TILE_ENEMY_HL '<'
+# define TILE_ENEMY_HR '>'
+# define TILE_ENEMY_VT '^'
+# define TILE_ENEMY_VD 'v'
 
 typedef struct s_map_file
 {
@@ -47,9 +51,10 @@ typedef struct s_map_file
 
 typedef struct s_map
 {
-	t_map_file	file;
-	t_tile		**tile;
-	t_uvector	size;
+	t_map_file		file;
+	t_tile			**tile;
+	t_uvector		size;
+	unsigned int	collectibles_count;
 }	t_map;
 
 t_map		*_map(void);

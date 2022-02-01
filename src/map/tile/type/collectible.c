@@ -11,9 +11,11 @@
 /* ************************************************************************** */
 
 #include "tile.h"
+#include "map.h"
+#include "ftprintf.h"
 #include "errors.h"
 
-static void	tile_collectible_interact(t_tile *t)
+static void	tile_collectible_on_stepping(t_tile *t)
 {
 	t_tile_bistate	*tile;
 	t_xpm_image		*tmp;
@@ -25,6 +27,7 @@ static void	tile_collectible_interact(t_tile *t)
 	tmp = t->image;
 	t->image = tile->image2;
 	tile->image2 = tmp;
+	_map()->collectibles_count--;
 }
 
 static void	tile_collectible_destroy(t_tile *t)
@@ -55,9 +58,8 @@ t_tile	*tile_collectible_new(
 	tile->p.type = type;
 	tile->p.pos.x = x;
 	tile->p.pos.y = y;
-	tile->p.collides = TRUE;
 	tile->p.destroy = tile_collectible_destroy;
-	tile->p.on_interact = tile_collectible_interact;
+	tile->p.on_stepping = tile_collectible_on_stepping;
 	tile->p.render = tile_render;
 	return (as_tile(tile));
 }

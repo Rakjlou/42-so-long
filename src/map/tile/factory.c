@@ -36,6 +36,7 @@ static void	init_custom_tiles(
 {
 	factory['0'] = tile_floor_new;
 	factory['P'] = tile_floor_new;
+	factory['^'] = tile_floor_new;
 	factory['1'] = tile_wall_new;
 	factory['E'] = tile_exit_new;
 	factory['C'] = tile_collectible_new;

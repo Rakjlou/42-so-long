@@ -35,6 +35,8 @@ static t_bool	map_tiles_init(t_map *map)
 			map->tile[index] = tile_factory(line[y], x, y);
 			if (map->tile[index] == NULL)
 				return (fterr_set_error(FAILED_MALLOC), FALSE);
+			else if (line[y] == TILE_ENEMY_VT && !enemy_add(TILE_ENEMY_VT, x, y))
+				return (FALSE);
 			++y;
 		}
 		++x;

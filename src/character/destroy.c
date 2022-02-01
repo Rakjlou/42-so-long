@@ -14,5 +14,6 @@ void	player_destroy(void)
 	t_character	*player;
 
 	player = _player();
-	animation_destroy(player->animation);
+	if (player->animation != NULL)
+		animation_destroy(player->animation);
 }

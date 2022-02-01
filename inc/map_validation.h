@@ -38,5 +38,7 @@ t_bool		map_validator_1collectible(t_map *map);
 t_bool		map_validator_1spawn(t_map *map);
 t_bool		map_validator_1exit(t_map *map);
 t_bool		map_validator_valid_chars_only(t_map *map);
+t_bool		map_validator_enemies(t_map *map);
+
 
 #endif

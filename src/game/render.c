@@ -13,6 +13,26 @@
 #include "so_long.h"
 #include "ftprintf.h"
 
+static t_bool	is_character_on_tile(unsigned int x, unsigned y)
+{
+	unsigned int	i;
+	t_character		*enemy;
+
+	if (_player()->pos.y == y && _player()->pos.x == x)
+		return (TRUE);
+	i = 0;
+	if (_game()->enemy == NULL)
+		return (FALSE);
+	while (_game()->enemy[i] != NULL)
+	{
+		enemy = _game()->enemy[i];
+		if (enemy->pos.x == x && enemy->pos.y == y)
+			return (TRUE);
+		++i;
+	}
+	return (FALSE);
+}
+
 static void	game_render_map(void)
 {
 	unsigned int	x;
@@ -27,7 +47,7 @@ static void	game_render_map(void)
 		y = 0;
 		while (y < map->size.y)
 		{
-			if (y == _player()->pos.y && x == _player()->pos.x)
+			if (is_character_on_tile(x, y))
 			{
 				++y;
 				continue ;
@@ -42,12 +62,25 @@ static void	game_render_map(void)
 
 static void	game_render_characters(void)
 {
-	t_game		*game;
-	t_character	*player;
+	t_game			*game;
+	t_character		*player;
+	t_character		*enemy;
+	unsigned int	i;
+
 
 	game = _game();
 	player = &game->player;
 	player->render(player);
+	if (_game()->enemy == NULL)
+		return ;
+	i = 0;
+	while (_game()->enemy[i] != NULL)
+	{
+		enemy = _game()->enemy[i];
+		enemy->update(enemy);
+		enemy->render(enemy);
+		++i;
+	}
 }
 
 int	game_render(void)

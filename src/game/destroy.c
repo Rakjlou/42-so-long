@@ -12,6 +12,24 @@
 
 #include "so_long.h"
 #include "fterr.h"
+#include <stdlib.h>
+
+static void enemies_destroy(void)
+{
+	unsigned int	i;
+	t_character		*enemy;
+
+	if (_game()->enemy == NULL)
+		return ;
+	i = 0;
+	while (_game()->enemy[i] != NULL)
+	{
+		enemy = _game()->enemy[i];
+		enemy->destroy(enemy);
+		++i;
+	}
+	free(_game()->enemy);
+}
 
 void	game_destroy(void)
 {
@@ -19,6 +37,7 @@ void	game_destroy(void)
 
 	map_destroy();
 	player_destroy();
+	enemies_destroy();
 	ftconfig_destroy(_config());
 	fterr_destroy();
 	renderer_destroy();

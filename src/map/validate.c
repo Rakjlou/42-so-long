@@ -13,10 +13,7 @@
 #include "map_validation.h"
 #include "so_long.h"
 
-/*
-** TODO: Trim le fichier map (lignes vides au debut et fin)
-*/
-t_bool	map_validate(void)
+static t_bool	validate_strict()
 {
 	t_map	*map;
 
@@ -28,4 +25,27 @@ t_bool	map_validate(void)
 		&& map_validator_1spawn(map)
 		&& map_validator_1exit(map)
 		&& map_validator_1collectible(map));
+}
+
+static t_bool	validate_tronkil()
+{
+	t_map	*map;
+
+	map = _map();
+	return (map_validator_rectangle(map)
+		&& map_validator_valid_chars_only(map)
+		&& map_validator_1spawn(map)
+		&& map_validator_1exit(map)
+		&& map_validator_enemies(map));
+}
+
+/*
+** TODO: Trim le fichier map (lignes vides au debut et fin)
+*/
+t_bool	map_validate(void)
+{
+	if (ftconfig_get_boolean(_config(), "strict"))
+		return (validate_strict());
+	return (validate_tronkil());
+
 }

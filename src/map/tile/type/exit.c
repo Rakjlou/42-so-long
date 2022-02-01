@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "tile.h"
+#include "map.h"
 #include "errors.h"
 
 static t_bool	tile_exit_allow_stepping(t_tile *t)
 {
 	(void)t;
-	return (TRUE);
+	return (_map()->collectibles_count == 0);
 }
 
 t_tile	*tile_exit_new(

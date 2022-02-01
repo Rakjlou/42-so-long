@@ -18,6 +18,8 @@ static void	free_tiles(t_map *map)
 	unsigned int	i;
 	t_tile			*tile;
 
+	if (map->tile == NULL)
+		return ;
 	i = 0;
 	while (i < map->size.x * map->size.y)
 	{

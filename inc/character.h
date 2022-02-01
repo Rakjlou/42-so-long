@@ -11,12 +11,32 @@ typedef struct s_character
 	t_animation	*animation;
 	void		(*render)(struct s_character *);
 	void		(*update)(struct s_character *);
+	void		(*destroy)(struct s_character *);
+	void		(*on_collide)(struct s_character *);
 }	t_character;
 
-t_character	*_player(void);
+typedef struct s_enemy_v
+{
+	t_character	p;
+	int			direction;
+	t_animation	*animation_top;
+	t_animation	*animation_down;
+}	t_enemy_v;
+
 t_character	*character_new(unsigned int x, unsigned y, const char *sprite_file);
-t_bool		player_init(void);
 void		character_destroy(t_character *character);
+void		character_render(t_character *character);
+
+t_bool		enemy_add(unsigned char type, unsigned int x, unsigned int y);
+
+t_character	*_player(void);
+t_bool		player_init(void);
 void		player_destroy(void);
+t_bool		player_can_go(unsigned int x, unsigned int y);
+t_bool		player_can_go_up(void);
+t_bool		player_can_go_down(void);
+t_bool		player_can_go_right(void);
+t_bool		player_can_go_left(void);
+
 
 # endif

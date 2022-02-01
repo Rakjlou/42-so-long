@@ -14,10 +14,12 @@
 
 t_bool	map_validator_1collectible(t_map *map)
 {
-	t_iter	iter;
-	char	*line;
-	int		i;
+	t_iter			iter;
+	char			*line;
+	int				i;
+	unsigned int	count;
 
+	count = 0;
 	iter_init(&iter, &map->file.data, DESC);
 	while (iter_next(&iter))
 	{
@@ -26,9 +28,14 @@ t_bool	map_validator_1collectible(t_map *map)
 		while (line[i])
 		{
 			if (line[i] == TILE_COLLECTIBLE)
-				return (TRUE);
+				++count;
 			++i;
 		}
+	}
+	if (count > 0)
+	{
+		_map()->collectibles_count = count;
+		return (TRUE);
 	}
 	return (map_error(-1, E_NO_COLLECTIBLE, NULL));
 }

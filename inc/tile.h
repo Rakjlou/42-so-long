@@ -42,6 +42,7 @@ typedef struct s_tile_bistate
 t_tile	*tile_factory(unsigned int type, unsigned int x, unsigned int y);
 t_tile	*as_tile(void *child);
 void	tile_render(t_tile *tile);
+t_tile	*tile_get(unsigned int x, unsigned int y);
 void	tile_default_destroy(t_tile *tile);
 
 t_tile	*tile_collectible_new(

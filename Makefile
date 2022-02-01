@@ -24,6 +24,8 @@ SRC = src/main.c \
  	src/mlx_callback/mouse.c \
  	src/character/init.c \
  	src/character/destroy.c \
+ 	src/character/enemy_add.c \
+ 	src/character/player_movement.c \
  	src/animation/init.c \
  	src/animation/destroy.c \
  	src/animation/render.c \
@@ -40,6 +42,7 @@ SRC = src/main.c \
  	src/map/instanciate.c \
  	src/map/validate.c \
  	src/map/tile/render.c \
+ 	src/map/tile/get.c \
  	src/map/tile/factory.c \
  	src/map/tile/as_tile.c \
  	src/map/tile/type/collectible.c \
@@ -57,6 +60,7 @@ SRC = src/main.c \
 	src/map/validator/walls_surround.c \
 	src/map/validator/wall_top.c \
 	src/map/validator/valid_chars_only.c \
+	src/map/validator/enemies.c \
 
 OBJ = $(SRC:.c=.o)
 

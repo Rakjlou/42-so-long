@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid_chars_only.c                                 :+:      :+:    :+:   */
+/*   1exit.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 00:48:12 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/01/26 22:55:13 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_validation.h"
 #include "so_long.h"
+#include "errors.h"
+#include "ftprintf.h"
 
-t_bool	map_validator_valid_chars_only(t_map *map)
+static t_bool	init_enemy_array(int count)
+{
+	if (count == 0)
+		return (TRUE);
+	_game()->enemy = ft_calloc(sizeof(t_character *), count + 1);
+	if (_game()->enemy == NULL)
+		return (fterr_set_error(FAILED_MALLOC), FALSE);
+	return (TRUE);
+}
+
+t_bool	map_validator_enemies(t_map *map)
 {
 	t_iter	iter;
 	char	*line;
-	char	*checked;
 	int		i;
+	int		count;
 
-	checked = VALID_TILE_CHARS;
-	if (ftconfig_get_boolean(_config(), "strict") == FALSE)
-		checked = VALID_EXTRA_TILE_CHARS;
+	count = 0;
 	iter_init(&iter, &map->file.data, DESC);
 	while (iter_next(&iter))
 	{
@@ -30,10 +40,10 @@ t_bool	map_validator_valid_chars_only(t_map *map)
 		i = 0;
 		while (line[i])
 		{
-			if (!ft_cvalid(line[i], checked))
-				return (map_error(iter.pos, E_INVALID_CHAR, line));
+			if (line[i] == TILE_ENEMY_VT)
+				++count;
 			++i;
 		}
 	}
-	return (TRUE);
+	return (init_enemy_array(count));
 }

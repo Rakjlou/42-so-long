@@ -55,6 +55,7 @@ typedef struct s_game
 	t_renderer	renderer;
 	t_character	player;
 	t_input		input;
+	t_character	**enemy;
 }	t_game;
 
 /* Singleton Access */
