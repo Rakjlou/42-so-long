@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 12:48:31 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 00:58:38 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:45:15 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,5 @@ unsigned int	ft_umin(unsigned int a, unsigned int b);
 unsigned int	ft_umax(unsigned int a, unsigned int b);
 unsigned int	ft_uimin(unsigned int a, unsigned int b);
 unsigned int	ft_uimax(unsigned int a, unsigned int b);
-
 
 #endif

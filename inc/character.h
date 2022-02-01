@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   character.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/01 01:18:51 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/02/01 01:31:48 by nsierra-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CHARACTER_H
 # define CHARACTER_H
 
@@ -23,11 +35,21 @@ typedef struct s_enemy_v
 	t_animation	*animation_down;
 }	t_enemy_v;
 
-t_character	*character_new(unsigned int x, unsigned y, const char *sprite_file);
+t_character	*character_new(unsigned int x,
+				unsigned int y,
+				const char *sprite_file);
 void		character_destroy(t_character *character);
 void		character_render(t_character *character);
 
 t_bool		enemy_add(unsigned char type, unsigned int x, unsigned int y);
+
+t_enemy_v	*enemy_v_new(
+				unsigned char type,
+				unsigned int x,
+				unsigned int y);
+void		enemy_v_update(t_character *character);
+void		enemy_v_on_collide(t_character *character);
+void		enemy_v_destroy(t_character *character);
 
 t_character	*_player(void);
 t_bool		player_init(void);
@@ -38,5 +60,4 @@ t_bool		player_can_go_down(void);
 t_bool		player_can_go_right(void);
 t_bool		player_can_go_left(void);
 
-
-# endif
+#endif

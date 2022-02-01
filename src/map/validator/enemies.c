@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   1exit.c                                            :+:      :+:    :+:   */
+/*   enemies.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 22:55:13 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:43:14 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 
 static t_bool	init_enemy_array(int count)
 {
+	t_character	**enemy;
+
 	if (count == 0)
 		return (TRUE);
-	_game()->enemy = ft_calloc(sizeof(t_character *), count + 1);
-	if (_game()->enemy == NULL)
+	enemy = _game()->enemy;
+	enemy = ft_calloc(sizeof(t_character *), count + 1);
+	if (enemy == NULL)
 		return (fterr_set_error(FAILED_MALLOC), FALSE);
 	return (TRUE);
 }

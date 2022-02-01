@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:42:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:31:00 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:34:18 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static t_bool	map_tiles_init(t_map *map)
 {
 	unsigned int	x;
 	unsigned int	y;
-	unsigned int	index;
 	t_iter			iter;
 	char			*line;
 
@@ -31,11 +30,11 @@ static t_bool	map_tiles_init(t_map *map)
 		line = (char *)iter.data;
 		while (y < map->size.y)
 		{
-			index = (x * map->size.y) + y;
-			map->tile[index] = tile_factory(line[y], x, y);
-			if (map->tile[index] == NULL)
+			map->tile[(x * map->size.y) + y] = tile_factory(line[y], x, y);
+			if (map->tile[(x * map->size.y) + y] == NULL)
 				return (fterr_set_error(FAILED_MALLOC), FALSE);
-			else if (line[y] == TILE_ENEMY_VT && !enemy_add(TILE_ENEMY_VT, x, y))
+			else if (line[y] == TILE_ENEMY_VT
+				&& !enemy_add(TILE_ENEMY_VT, x, y))
 				return (FALSE);
 			++y;
 		}

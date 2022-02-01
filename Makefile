@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/31 14:17:57 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/01 14:44:13 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,9 @@ SRC = src/main.c \
  	src/character/destroy.c \
  	src/character/enemy_add.c \
  	src/character/player_movement.c \
+ 	src/character/enemy-v/init.c \
+ 	src/character/enemy-v/destroy.c \
+ 	src/character/enemy-v/callbacks.c \
  	src/animation/init.c \
  	src/animation/destroy.c \
  	src/animation/render.c \

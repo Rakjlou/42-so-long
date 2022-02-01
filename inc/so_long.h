@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:18:37 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 01:21:37 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@
 #  define KEYCODE_SPACE 32
 #  define KEYCODE_ESC 65307
 # else
+
 const char	g_error_platform_not_supported[0];
+
 # endif
 
 typedef struct s_input

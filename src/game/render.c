@@ -6,14 +6,14 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 01:45:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:20:42 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:32:28 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "ftprintf.h"
 
-static t_bool	is_character_on_tile(unsigned int x, unsigned y)
+static t_bool	is_character_on_tile(unsigned int x, unsigned int y)
 {
 	unsigned int	i;
 	t_character		*enemy;
@@ -66,7 +66,6 @@ static void	game_render_characters(void)
 	t_character		*player;
 	t_character		*enemy;
 	unsigned int	i;
-
 
 	game = _game();
 	player = &game->player;

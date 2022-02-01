@@ -6,19 +6,25 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 22:55:12 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:42:43 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "map_validation.h"
 
+static void	update_player_position(unsigned int x, unsigned int y)
+{
+	_game()->player.pos.x = x;
+	_game()->player.pos.y = y;
+}
+
 t_bool	map_validator_1spawn(t_map *map)
 {
-	t_iter	iter;
-	char	*line;
-	int		i;
-	int		count;
+	unsigned int		count;
+	unsigned int		i;
+	t_iter				iter;
+	char				*line;
 
 	count = 0;
 	iter_init(&iter, &map->file.data, DESC);
@@ -28,12 +34,8 @@ t_bool	map_validator_1spawn(t_map *map)
 		i = 0;
 		while (line[i])
 		{
-			if (line[i] == TILE_SPAWN)
-			{
-				_game()->player.pos.x = (unsigned int)iter.pos;
-				_game()->player.pos.y = (unsigned int)i;
-				++count;
-			}
+			if (line[i] == TILE_SPAWN && ++count)
+				update_player_position((unsigned int)iter.pos, i);
 			++i;
 		}
 	}

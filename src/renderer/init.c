@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 00:57:28 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:25:33 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:41:52 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	renderer_clear_window(void)
 
 	renderer = _renderer();
 	mlx_clear_window(renderer->core, renderer->window);
-
 }
 
 t_bool	renderer_init(void)

@@ -6,14 +6,14 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:42:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 00:40:29 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 14:35:19 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_validation.h"
 #include "so_long.h"
 
-static t_bool	validate_strict()
+static t_bool	validate_strict(void)
 {
 	t_map	*map;
 
@@ -27,7 +27,7 @@ static t_bool	validate_strict()
 		&& map_validator_1collectible(map));
 }
 
-static t_bool	validate_tronkil()
+static t_bool	validate_non_strict(void)
 {
 	t_map	*map;
 
@@ -46,6 +46,5 @@ t_bool	map_validate(void)
 {
 	if (ftconfig_get_boolean(_config(), "strict"))
 		return (validate_strict());
-	return (validate_tronkil());
-
+	return (validate_non_strict());
 }

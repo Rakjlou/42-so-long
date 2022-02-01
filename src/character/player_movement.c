@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player_movement.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/01 01:18:51 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/02/01 14:30:44 by nsierra-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 
 t_bool	player_can_go(unsigned int x, unsigned int y)
@@ -35,4 +47,3 @@ t_bool	player_can_go_left(void)
 {
 	return (player_can_go(_player()->pos.x, _player()->pos.y - 1));
 }
-

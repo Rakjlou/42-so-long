@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/01 01:18:51 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/02/01 14:30:32 by nsierra-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "so_long.h"
 #include "animation.h"
 #include "errors.h"
@@ -39,7 +51,10 @@ void	character_render(t_character *character)
 	animation_render(character->animation, character->pos.x, character->pos.y);
 }
 
-t_character	*character_new(unsigned int x, unsigned y, const char *sprite_file)
+t_character	*character_new(
+	unsigned int x,
+	unsigned int y,
+	const char *sprite_file)
 {
 	t_character	*character;
 
@@ -59,12 +74,12 @@ t_bool	player_init(void)
 
 	game = _game();
 	game->player.animation = animation_new(
-		5,
-		20, "sprites/player1.xpm",
-		25, "sprites/player2.xpm",
-		30, "sprites/player3.xpm",
-		35, "sprites/player4.xpm",
-		40, "sprites/player5.xpm");
+			5,
+			20, "sprites/player1.xpm",
+			25, "sprites/player2.xpm",
+			30, "sprites/player3.xpm",
+			35, "sprites/player4.xpm",
+			40, "sprites/player5.xpm");
 	if (game->player.animation == NULL)
 		return (FALSE);
 	game->player.render = character_render;

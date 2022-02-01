@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:06:56 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/26 22:30:13 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 01:20:44 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ t_bool		map_validator_1spawn(t_map *map);
 t_bool		map_validator_1exit(t_map *map);
 t_bool		map_validator_valid_chars_only(t_map *map);
 t_bool		map_validator_enemies(t_map *map);
-
 
 #endif
