@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:13:54 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:24:34 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:00:28 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ int	key_hook_callback(int keycode)
 		input->attack = TRUE;
 	else if (keycode == KEYCODE_ESC)
 		input->close = TRUE;
-	ftprintf("key %d\n", keycode);
 	return (1);
 }

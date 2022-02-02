@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 01:29:55 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 18:16:47 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 01:30:47 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	enemy_v_update(t_character *character)
 	enemy = (t_enemy_v *)character;
 	if (i >= 80)
 	{
-		if (!character_can_go(character->pos.x + enemy->direction,
+		if (!player_can_go(character->pos.x + enemy->direction,
 				character->pos.y))
 			character->on_collide(character);
 		else

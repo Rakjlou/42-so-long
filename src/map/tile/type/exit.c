@@ -12,12 +12,19 @@
 
 #include "tile.h"
 #include "map.h"
+#include "so_long.h"
 #include "errors.h"
 
 static t_bool	tile_exit_allow_stepping(t_tile *t)
 {
 	(void)t;
 	return (_map()->collectibles_count == 0);
+}
+
+static void	tile_exit_on_stepping(t_tile *t)
+{
+	(void)t;
+	close_callback();
 }
 
 t_tile	*tile_exit_new(
@@ -37,6 +44,7 @@ t_tile	*tile_exit_new(
 	tile->p.pos.x = x;
 	tile->p.pos.y = y;
 	tile->p.allow_stepping = tile_exit_allow_stepping;
+	tile->p.on_stepping = tile_exit_on_stepping;
 	tile->p.render = tile_render;
 	return (as_tile(tile));
 }

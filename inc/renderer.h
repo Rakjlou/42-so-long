@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 00:54:24 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:11:51 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:40:14 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ t_renderer	*_renderer(void);
 t_bool		renderer_init(void);
 void		renderer_destroy(void);
 void		renderer_clear_window(void);
+void		renderer_print_text(char *text, int color, int x, int y);
 
 #endif

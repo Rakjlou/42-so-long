@@ -43,7 +43,7 @@ t_bool	map_validator_enemies(t_map *map)
 		i = 0;
 		while (line[i])
 		{
-			if (line[i] == TILE_ENEMY_VT)
+			if (ft_cvalid(line[i], NMY_CHARS))
 				++count;
 			++i;
 		}

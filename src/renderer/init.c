@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 00:57:28 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 14:41:52 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:59:20 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_bool	renderer_init(void)
 	renderer->window = mlx_new_window(
 			renderer->core,
 			(int)map->size.y * TILE_PIXEL_SIZE,
-			(int)map->size.x * TILE_PIXEL_SIZE,
+			(int)map->size.x * TILE_PIXEL_SIZE + 50,
 			GAME_NAME);
 	mlx_key_hook(renderer->window, key_hook_callback, NULL);
 	mlx_hook(renderer->window, 2, 0, key_hook_callback, NULL);

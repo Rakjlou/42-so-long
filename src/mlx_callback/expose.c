@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:13:54 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:24:54 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:00:33 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 int	expose_hook_callback(void)
 {
-	ftprintf("EXPOSE HOOK\n");
 	return (1);
 }

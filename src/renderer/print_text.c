@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   close.c                                            :+:      :+:    :+:   */
+/*   print_text.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/31 14:13:54 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 18:00:31 by nsierra-         ###   ########.fr       */
+/*   Created: 2022/02/01 18:19:42 by nsierra-          #+#    #+#             */
+/*   Updated: 2022/02/01 18:22:17 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
-#include "ftprintf.h"
-#include <unistd.h>
+#include "renderer.h"
+#include "mlx.h"
 
-int	close_callback(void)
+void	renderer_print_text(char *text, int color, int x, int y)
 {
-	game_destroy();
-	exit(0);
-	return (1);
+	t_renderer	*r;
+
+	r = _renderer();
+	mlx_string_put(r->core, r->window, x, y, color, text);
 }

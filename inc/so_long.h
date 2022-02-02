@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 01:21:37 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:00:28 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,14 @@ typedef struct s_input
 
 typedef struct s_game
 {
-	t_ftconfig	config;
-	t_map		map;
-	t_renderer	renderer;
-	t_character	player;
-	t_input		input;
-	t_character	**enemy;
+	t_ftconfig		config;
+	t_map			map;
+	t_renderer		renderer;
+	t_character		player;
+	t_input			input;
+	t_character		**enemy;
+	unsigned int	player_movements;
+	unsigned int	collectibles_total;
 }	t_game;
 
 /* Singleton Access */

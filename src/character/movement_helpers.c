@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player_movement.c                                  :+:      :+:    :+:   */
+/*   movement_helpers.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 01:18:51 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 14:30:44 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:26:57 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_bool	player_can_go(unsigned int x, unsigned int y)
+t_bool	character_can_go(unsigned int x, unsigned int y)
 {
 	t_tile	*tile;
 	t_map	*map;
@@ -30,20 +30,20 @@ t_bool	player_can_go(unsigned int x, unsigned int y)
 
 t_bool	player_can_go_up(void)
 {
-	return (player_can_go(_player()->pos.x - 1, _player()->pos.y));
+	return (character_can_go(_player()->pos.x - 1, _player()->pos.y));
 }
 
 t_bool	player_can_go_down(void)
 {
-	return (player_can_go(_player()->pos.x + 1, _player()->pos.y));
+	return (character_can_go(_player()->pos.x + 1, _player()->pos.y));
 }
 
 t_bool	player_can_go_right(void)
 {
-	return (player_can_go(_player()->pos.x, _player()->pos.y + 1));
+	return (character_can_go(_player()->pos.x, _player()->pos.y + 1));
 }
 
 t_bool	player_can_go_left(void)
 {
-	return (player_can_go(_player()->pos.x, _player()->pos.y - 1));
+	return (character_can_go(_player()->pos.x, _player()->pos.y - 1));
 }

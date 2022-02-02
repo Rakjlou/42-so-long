@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/02/01 14:44:13 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/01 18:52:52 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC = src/main.c \
  	src/config/config.c \
  	src/renderer/init.c \
  	src/renderer/destroy.c \
+ 	src/renderer/print_text.c \
  	src/mlx_callback/close.c \
  	src/mlx_callback/expose.c \
  	src/mlx_callback/key.c \
@@ -25,10 +26,13 @@ SRC = src/main.c \
  	src/character/init.c \
  	src/character/destroy.c \
  	src/character/enemy_add.c \
- 	src/character/player_movement.c \
+ 	src/character/movement_helpers.c \
  	src/character/enemy-v/init.c \
  	src/character/enemy-v/destroy.c \
  	src/character/enemy-v/callbacks.c \
+ 	src/character/player/init.c \
+ 	src/character/player/destroy.c \
+ 	src/character/player/update.c \
  	src/animation/init.c \
  	src/animation/destroy.c \
  	src/animation/render.c \
@@ -72,7 +76,7 @@ CC = gcc
 LIBFT_DIR = libft
 MLX_DIR = minilibx-linux
 
-CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -g3 \
+CFLAGS = -Wall -Wextra -Werror -pedantic -ansi -MMD -g3 \
 			-I . \
 			-I inc/ \
 			-I $(LIBFT_DIR) \
@@ -98,7 +102,7 @@ mlx:
 clean:
 	make --no-print-directory -C $(LIBFT_DIR) clean
 	make --no-print-directory -C $(MLX_DIR) clean
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(DEPS)
 
 fclean: clean
 	make --no-print-directory -C $(LIBFT_DIR) fclean
@@ -106,11 +110,16 @@ fclean: clean
 
 re: fclean all
 
+rt: fclean test
+
 test: all
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes \
-	./so_long map/bigger.ber
+	./so_long map/miniv.ber
 
 gdb: all
 	gdb --args ./so_long map/bigger.ber
 
+
 .PHONY: clean fclean re libft mlx
+
+-include $(OBJ:.o=.d)

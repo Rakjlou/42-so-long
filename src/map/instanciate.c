@@ -14,6 +14,7 @@
 #include "errors.h"
 #include "ftprintf.h"
 #include "so_long.h"
+#include "libft.h"
 
 static t_bool	map_tiles_init(t_map *map)
 {
@@ -33,8 +34,7 @@ static t_bool	map_tiles_init(t_map *map)
 			map->tile[(x * map->size.y) + y] = tile_factory(line[y], x, y);
 			if (map->tile[(x * map->size.y) + y] == NULL)
 				return (fterr_set_error(FAILED_MALLOC), FALSE);
-			else if (line[y] == TILE_ENEMY_VT
-				&& !enemy_add(TILE_ENEMY_VT, x, y))
+			else if (ft_cvalid(line[y], NMY_CHARS) && !enemy_add(line[y], x, y))
 				return (FALSE);
 			++y;
 		}

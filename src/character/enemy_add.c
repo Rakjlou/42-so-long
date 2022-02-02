@@ -21,7 +21,7 @@ static t_character	*enemy_factory(
 	unsigned int x,
 	unsigned int y)
 {
-	if (type == TILE_ENEMY_VT)
+	if (type == TILE_NMY_VT || type == TILE_NMY_VD)
 		return ((t_character *)enemy_v_new(type, x, y));
 	return (NULL);
 }
