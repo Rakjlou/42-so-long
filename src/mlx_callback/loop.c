@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:13:54 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 20:36:41 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:31:47 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ int	loop_hook_callback(void)
 
 	if (_game()->input.close)
 		close_callback();
+	if (_game()->end == TRUE)
+	{
+		ui_render();
+		return (1);
+	}
 	player = _player();
 	player->update(player);
 	game_render();

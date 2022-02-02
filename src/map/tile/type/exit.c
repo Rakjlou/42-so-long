@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:10:25 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:24:11 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:38:35 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static t_bool	tile_exit_allow_stepping(t_tile *t)
 static void	tile_exit_on_stepping(t_tile *t)
 {
 	(void)t;
-	close_callback();
+	_game()->end = TRUE;
+	_game()->end_msg = "Congratulations ! You won !";
 }
 
 t_tile	*tile_exit_new(

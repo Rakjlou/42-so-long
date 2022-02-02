@@ -6,12 +6,23 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 21:03:26 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 22:01:44 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:35:28 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "ftprintf.h"
+
+static void	ui_render_end(void)
+{
+	t_game	*game;
+	t_ui	*ui;
+
+	game = _game();
+	ui = &game->ui;
+	ui_clear();
+	renderer_print_text(game->end_msg, 0xFFFFFFFF, 0, ui->start.x + 15);
+}
 
 void	ui_clear(void)
 {
@@ -31,6 +42,11 @@ void	ui_render(void)
 	t_game			*game;
 	t_ui			*ui;
 
+	if (_game()->end == TRUE)
+	{
+		ui_render_end();
+		return ;
+	}
 	ui_clear();
 	game = _game();
 	ui = &game->ui;

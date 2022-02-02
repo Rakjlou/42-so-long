@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 20:35:16 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:33:07 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ typedef struct s_input
 
 typedef struct s_game
 {
+	t_bool			end;
+	char			*end_msg;
 	t_ftconfig		config;
 	t_map			map;
 	t_renderer		renderer;
