@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 00:36:16 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 13:33:27 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:59:59 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 #  define NULLSTR_PLACEHOLDER "(null)"
 # endif
 
+# include <unistd.h>
+
 typedef struct s_printf_op
 {
 	t_bool		alternative;
@@ -59,12 +61,18 @@ typedef struct s_printf
 	unsigned int	current;
 	t_printf_op		op;
 	int				fd;
-
+	char			*wbuf;
+	size_t			wbuf_size;
+	unsigned int	wbuf_cursor;
 }	t_printf;
 
 int			ftfprintf(int fd, const char *format, ...);
+int			ftsprintf(char *buffer, size_t size, const char *format, ...);
 int			ftprintf(const char *format, ...)
 			__attribute__((__format__ (__printf__, 1, 2)));
+
+void		_ftprintf_write(t_printf *state, const char *str, size_t len);
+
 /* STATES */
 const char	*state_default(const char *format, t_printf *state);
 const char	*state_conversion(const char *format, t_printf *state);

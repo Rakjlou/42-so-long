@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 17:52:31 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 17:59:19 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 20:36:57 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	player_update(t_character *player)
 	entering = tile_get(player->pos.x, player->pos.y);
 	if (leaving->pos.x != entering->pos.x || leaving->pos.y != entering->pos.y)
 	{
-		++game->player_movements;
+		++game->ui.player_movements;
 		if (leaving->on_leaving != NULL)
 			leaving->on_leaving(leaving);
 		if (entering->on_stepping)

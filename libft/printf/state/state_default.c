@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 23:08:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/25 13:32:55 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:53:36 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,7 @@ const char	*state_default(const char *format, t_printf *state)
 	while (format[i] && format[i] != CONVERSION_CHARACTER)
 		i++;
 	if (i != 0)
-	{
-		write(state->fd, format, i);
-		state->bytes_printed += i;
-	}
+		_ftprintf_write(state, format, i);
 	state->current = get_state(format[i]);
 	return (format + i);
 }

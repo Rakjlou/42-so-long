@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/02/01 18:52:52 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/01 21:31:23 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,9 @@ SRC = src/main.c \
  	src/animation/init.c \
  	src/animation/destroy.c \
  	src/animation/render.c \
+ 	src/ui/init.c \
+ 	src/ui/destroy.c \
+ 	src/ui/render.c \
  	src/game/init.c \
  	src/game/destroy.c \
  	src/game/singleton.c \
@@ -112,9 +115,12 @@ re: fclean all
 
 rt: fclean test
 
+n:
+	~/.local/bin/norminette inc src libft
+
 test: all
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes \
-	./so_long map/miniv.ber
+	./so_long map/bigger.ber
 
 gdb: all
 	gdb --args ./so_long map/bigger.ber

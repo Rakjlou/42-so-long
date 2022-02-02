@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:13:54 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 18:30:18 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 20:36:41 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	shell_render(void)
 	static unsigned int	movements = 0;
 	unsigned int		player_movements;
 
-	player_movements = _game()->player_movements;
+	player_movements = _game()->ui.player_movements;
 	if (movements != player_movements)
 	{
 		ftprintf("Movements count: %u\n", player_movements);

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:47:56 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 14:31:24 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 21:11:09 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	game_destroy(void)
 	map_destroy();
 	player_destroy();
 	enemies_destroy();
+	ui_destroy();
 	ftconfig_destroy(_config());
 	fterr_destroy();
 	renderer_destroy();

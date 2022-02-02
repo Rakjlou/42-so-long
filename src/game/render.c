@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 01:45:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 18:58:31 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 21:13:58 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,10 @@ static void	game_render_characters(void)
 	}
 }
 
-static void	game_render_ui(void)
-{
-	t_map	*map;
-
-	map = _map();
-	renderer_print_text("Salut mec", 0xFFFFFFFF, 0, map->size.x * TILE_PIXEL_SIZE + 15);
-}
-
 int	game_render(void)
 {
 	game_render_map();
 	game_render_characters();
-	game_render_ui();
+	ui_render();
 	return (1);
 }

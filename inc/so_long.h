@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 19:00:28 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 20:35:16 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "map.h"
 # include "renderer.h"
 # include "character.h"
+# include "ui.h"
 
 # define GAME_NAME "so_paint"
 
@@ -57,9 +58,8 @@ typedef struct s_game
 	t_renderer		renderer;
 	t_character		player;
 	t_input			input;
+	t_ui			ui;
 	t_character		**enemy;
-	unsigned int	player_movements;
-	unsigned int	collectibles_total;
 }	t_game;
 
 /* Singleton Access */

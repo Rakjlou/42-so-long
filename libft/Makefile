@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 13:56:55 by nsierra-          #+#    #+#              #
-#    Updated: 2022/01/25 19:03:48 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/01 19:54:57 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,9 @@ LIBFT_SRC = ft_isalpha.c \
 PRINTF_DIR = printf/
 PRINTF_SRC = ftprintf.c \
 	ftfprintf.c \
+	ftsprintf.c \
 	utils.c \
+	write.c \
 	state/state_default.c \
 	state/state_conversion_flags.c \
 	state/state_conversion_length.c \

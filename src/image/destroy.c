@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:10:25 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:20:47 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 21:03:04 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,11 @@
 void	xpm_image_destroy(t_xpm_image *image)
 {
 	mlx_destroy_image(_renderer()->core, image->p.mlx_obj);
+	free(image);
+}
+
+void	image_destroy(t_image *image)
+{
+	mlx_destroy_image(_renderer()->core, image->mlx_obj);
 	free(image);
 }

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 18:46:50 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:19:40 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 21:11:00 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_bool	game_init(const char *mapfile)
 		&& map_init(mapfile)
 		&& renderer_init()
 		&& player_init()
+		&& ui_init()
 		&& map_instanciate()
 	);
 }
