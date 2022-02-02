@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 23:58:47 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/02 00:05:14 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 #include "ftprintf.h"
 #include "so_long.h"
 
-/*
-** TODO: Check fichiers qui s'appelleraient uniquement .ber
-** Gérer aussi ./.ber ou ./map/.ber
-*/
 t_bool	map_validator_filename(t_map *map)
 {
 	char	*slash;

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 23:42:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 14:35:19 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/02 00:04:52 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,6 @@ static t_bool	validate_non_strict(void)
 		&& map_validator_enemies(map));
 }
 
-/*
-** TODO: Trim le fichier map (lignes vides au debut et fin)
-*/
 t_bool	map_validate(void)
 {
 	if (ftconfig_get_boolean(_config(), "strict"))
