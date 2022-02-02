@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 12:06:56 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:30:17 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 23:26:18 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # define E_FAILED_MALLOC "Malloc has failed"
 # define E_MISS_CONFIG_KEY "Key %s is missing in config file"
 # define E_MISS_CONFIG_VAL "Key %s has no value in config file"
+# define E_MAP_EMPTY_OR_DIR "Map is empty or is a directory"
 # define E_DEFAULT "Unknown error"
 
 typedef enum e_error_code
@@ -41,6 +42,7 @@ typedef enum e_error_code
 	MISS_CONFIG_VAL,
 	MLX_FAILURE,
 	IMG_LOAD,
+	MAP_EMPTY_OR_DIR,
 	UNKNOWN
 }	t_error_code;
 

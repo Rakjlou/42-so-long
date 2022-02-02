@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:36:46 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:30:23 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 23:55:19 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define E_NO_SPAWN "no spawn found"
 # define E_MULT_SPAWN "too much spawns found"
 # define E_BER_EXTENSION "map file name must end with .ber"
+# define E_BER_EXTENSION_CHEEKY "Oh really you tried that ?"
 # define E_WALL_BOTTOM "bottom line must be all walls"
 # define E_WALL_TOP "top line must be all walls"
 # define E_WALL_LEFT "left column must be all walls"

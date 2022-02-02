@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 14:59:52 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:30:40 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 23:27:02 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void	errors_register(void)
 	fterr_register(MLX_FAILURE, E_MLX_FAILURE, error_print);
 	fterr_register(FAILED_MALLOC, E_FAILED_MALLOC, error_print);
 	fterr_register(IMG_LOAD, E_IMG_LOAD, error_printf);
+	fterr_register(MAP_EMPTY_OR_DIR, E_MAP_EMPTY_OR_DIR, error_printf);
 	fterr_register(UNKNOWN, E_DEFAULT, error_print);
 }

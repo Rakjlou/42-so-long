@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:34:24 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/31 14:30:56 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 23:46:44 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ t_bool	map_init(const char *filename)
 		return (fterr_set(MAP_FILE_OPEN, (void *)filename, NULL), FALSE);
 	else if (status == FTRF_E_READL)
 		return (FALSE);
+	else if (map->file.data.size == 0)
+		return (fterr_set(MAP_EMPTY_OR_DIR, (void *)filename, NULL), FALSE);
 	map_set_length_height(map);
 	return (map_validate());
 }

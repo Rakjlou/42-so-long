@@ -6,11 +6,13 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/02/01 22:21:55 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/01 23:49:20 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
+
+TESTMAP = fail/fail.ber
 
 SRC = src/main.c \
  	src/errors/register.c \
@@ -122,10 +124,26 @@ n:
 
 test: all
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes \
-	./so_long map/bigger.ber
+	./so_long map/$(TESTMAP)
+
+test_failure: all
+	chmod -r map/fail/fail-read-rights.ber && \
+	./so_long map/fail/.ber || \
+	./so_long map/fail/fail-duplicate-exit.ber || \
+	./so_long map/fail/fail-duplicate-spawn.ber || \
+	./so_long map/fail/fail-empty.ber || \
+	./so_long map/fail/fail-extension.be || \
+	./so_long map/fail/fail-lacks-all.ber || \
+	./so_long map/fail/fail-lacks-collectible.ber || \
+	./so_long map/fail/fail-lacks-exit.ber || \
+	./so_long map/fail/fail-lacks-spawn.ber || \
+	./so_long map/fail/fail-read-rights.ber || \
+	./so_long map/fail/fail-unknown-char.ber || \
+	./so_long map/fail/fail-wall-rectangle.ber || \
+	chmod +r map/fail/fail-read-rights.ber
 
 gdb: all
-	gdb --args ./so_long map/bigger.ber
+	gdb --args ./so_long map/$(TESTMAP)
 
 
 .PHONY: clean fclean re libft mlx

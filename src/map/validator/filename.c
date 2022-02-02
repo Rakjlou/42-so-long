@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 20:07:37 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/01/27 00:48:18 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 23:58:47 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,14 @@
 */
 t_bool	map_validator_filename(t_map *map)
 {
+	char	*slash;
+
 	if (ftconfig_get_boolean(_config(), "strict") == FALSE)
 		return (TRUE);
 	else if (!ft_ends_with((char *)map->file.name, ".ber"))
 		return (map_error(-1, E_BER_EXTENSION, NULL));
-	return (TRUE);
+	slash = ft_strrchr(map->file.name, '/');
+	if (slash == NULL || ft_strlen(slash + 1) == 4)
+		return (map_error(-1, E_BER_EXTENSION_CHEEKY, NULL));
+	return (ft_strlen(slash + 1) > 3);
 }
