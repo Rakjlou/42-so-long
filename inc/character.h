@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 01:18:51 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 22:16:24 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:51:03 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ typedef struct s_character
 
 typedef struct s_enemy_v
 {
-	t_character	p;
-	int			direction;
-	t_animation	*animation_top;
-	t_animation	*animation_down;
+	t_character		p;
+	int				direction;
+	unsigned int	frame;
+	t_animation		*animation_top;
+	t_animation		*animation_down;
 }	t_enemy_v;
 
 t_character	*character_new(unsigned int x,

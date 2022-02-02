@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 01:29:55 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 22:07:05 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:52:06 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 void	enemy_v_update(t_character *character)
 {
-	static int		i = 0;
 	t_enemy_v		*enemy;
 	t_game			*game;
 	t_character		*player;
@@ -25,20 +24,19 @@ void	enemy_v_update(t_character *character)
 	game = _game();
 	player = &game->player;
 	x_target = character->pos.x + enemy->direction;
-	if (i++ >= 80)
+	if (enemy->frame++ >= 80)
 	{
 		if (!character_can_go(x_target,
 				character->pos.y))
 			character->on_collide(character);
 		else if (player->pos.x == x_target && player->pos.y == character->pos.y)
 		{
-			ftprintf("HERE\n");
 			player_hit();
 			character->on_collide(character);
 		}
 		else
 			character->pos.x = x_target;
-		i = 0;
+		enemy->frame = 0;
 	}
 }
 
