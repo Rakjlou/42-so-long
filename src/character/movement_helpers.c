@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 01:18:51 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 18:26:57 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:25:31 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,48 @@ t_bool	character_can_go(unsigned int x, unsigned int y)
 
 t_bool	player_can_go_up(void)
 {
-	return (character_can_go(_player()->pos.x - 1, _player()->pos.y));
+	if (character_can_go(_player()->pos.x - 1, _player()->pos.y) == FALSE)
+		return (FALSE);
+	else if (enemy_here(_player()->pos.x - 1, _player()->pos.y))
+	{
+		player_hit();
+		return (FALSE);
+	}
+	return (TRUE);
 }
 
 t_bool	player_can_go_down(void)
 {
-	return (character_can_go(_player()->pos.x + 1, _player()->pos.y));
+	if (character_can_go(_player()->pos.x + 1, _player()->pos.y) == FALSE)
+		return (FALSE);
+	else if (enemy_here(_player()->pos.x + 1, _player()->pos.y))
+	{
+		player_hit();
+		return (FALSE);
+	}
+	return (TRUE);
 }
 
 t_bool	player_can_go_right(void)
 {
-	return (character_can_go(_player()->pos.x, _player()->pos.y + 1));
+	if (character_can_go(_player()->pos.x, _player()->pos.y + 1) == FALSE)
+		return (FALSE);
+	else if (enemy_here(_player()->pos.x, _player()->pos.y + 1))
+	{
+		player_hit();
+		return (FALSE);
+	}
+	return (TRUE);
 }
 
 t_bool	player_can_go_left(void)
 {
-	return (character_can_go(_player()->pos.x, _player()->pos.y - 1));
+	if (character_can_go(_player()->pos.x, _player()->pos.y - 1) == FALSE)
+		return (FALSE);
+	else if (enemy_here(_player()->pos.x, _player()->pos.y - 1))
+	{
+		player_hit();
+		return (FALSE);
+	}
+	return (TRUE);
 }

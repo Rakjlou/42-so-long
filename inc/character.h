@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 01:18:51 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 18:14:11 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:16:24 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,13 @@ typedef struct s_character
 {
 	t_uvector		pos;
 	t_animation		*animation;
+	t_animation		*hit_animation;
 	unsigned int	hp;
+	unsigned int	is_hit;
 	void			(*render)(struct s_character *);
 	void			(*update)(struct s_character *);
 	void			(*destroy)(struct s_character *);
 	void			(*on_collide)(struct s_character *);
-	void			(*hit)(struct s_character *, struct s_character *);
 }	t_character;
 
 typedef struct s_enemy_v
@@ -44,6 +45,7 @@ void		character_destroy(t_character *character);
 void		character_render(t_character *character);
 
 t_bool		enemy_add(unsigned char type, unsigned int x, unsigned int y);
+t_bool		enemy_here(unsigned int x, unsigned int y);
 
 t_enemy_v	*enemy_v_new(
 				unsigned char type,
@@ -55,6 +57,7 @@ void		enemy_v_destroy(t_character *character);
 
 t_character	*_player(void);
 t_bool		player_init(void);
+void		player_hit(void);
 void		player_update(t_character *player);
 void		player_destroy(void);
 t_bool		character_can_go(unsigned int x, unsigned int y);

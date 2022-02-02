@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 21:03:26 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 21:23:55 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 22:01:44 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ui_render(void)
 	ui = &game->ui;
 	ftsprintf(buffer, 1024, "%-13s %u", "Movements", ui->player_movements);
 	renderer_print_text(buffer, 0xFFFFFFFF, 0, ui->start.x + 15);
-	ftsprintf(buffer, 1024, "%-13s 3/3", "HP");
+	ftsprintf(buffer, 1024, "%-13s %u/3", "HP", game->player.hp);
 	renderer_print_text(buffer, 0xFFFFFFFF, 0, ui->start.x + 30);
 	ftsprintf(buffer, 1024, "%-13s ", "Collectibles");
 	collectibles = _map()->collectibles_count;

@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 10:10:23 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 18:15:55 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/01 21:56:42 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,10 @@ t_bool	player_init(void)
 			30, "sprites/player3.xpm",
 			35, "sprites/player4.xpm",
 			40, "sprites/player5.xpm");
+	game->player.hit_animation = animation_new(
+			2,
+			10, "sprites/player1.xpm",
+			10, "sprites/floor.xpm");
 	if (game->player.animation == NULL)
 		return (FALSE);
 	game->player.render = character_render;
