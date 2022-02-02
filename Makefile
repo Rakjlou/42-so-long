@@ -6,13 +6,13 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/02/01 23:49:20 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/02 00:03:23 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-TESTMAP = fail/fail.ber
+TESTMAP = estupid.ber
 
 SRC = src/main.c \
  	src/errors/register.c \
