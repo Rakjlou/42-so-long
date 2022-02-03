@@ -6,7 +6,7 @@
 /*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 21:26:59 by nsierra-          #+#    #+#             */
-/*   Updated: 2022/02/01 22:33:07 by nsierra-         ###   ########.fr       */
+/*   Updated: 2022/02/03 23:34:48 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,15 @@
 # define GAME_NAME "so_paint"
 
 # ifdef __linux__
-#  define KEYCODE_UP 65362
-#  define KEYCODE_RIGHT 65363
-#  define KEYCODE_DOWN 65364
-#  define KEYCODE_LEFT 65361
-#  define KEYCODE_SPACE 32
-#  define KEYCODE_ESC 65307
-# elif _APPLE_
-#  define KEYCODE_UP 65362
-#  define KEYCODE_RIGHT 65363
-#  define KEYCODE_DOWN 65364
-#  define KEYCODE_LEFT 65361
+#  define KEYCODE_UP 119
+#  define KEYCODE_RIGHT 100
+#  define KEYCODE_DOWN 115
+#  define KEYCODE_LEFT 97
 #  define KEYCODE_SPACE 32
 #  define KEYCODE_ESC 65307
 # else
 
-const char	g_error_platform_not_supported[0];
+void	*g_your_system_is_not_supported = sorry;
 
 # endif
 

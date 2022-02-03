@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 23:54:46 by nsierra-          #+#    #+#              #
-#    Updated: 2022/02/02 00:03:23 by nsierra-         ###   ########.fr        #
+#    Updated: 2022/02/03 23:33:44 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,11 @@ re: fclean all
 rt: fclean test
 
 n:
-	~/.local/bin/norminette inc src libft
+	norminette inc src libft
+
+t:
+	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes \
+	./so_long map/$(m).ber
 
 test: all
 	valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all --show-reachable=yes \
@@ -128,18 +132,20 @@ test: all
 
 test_failure: all
 	chmod -r map/fail/fail-read-rights.ber && \
-	./so_long map/fail/.ber || \
-	./so_long map/fail/fail-duplicate-exit.ber || \
-	./so_long map/fail/fail-duplicate-spawn.ber || \
-	./so_long map/fail/fail-empty.ber || \
-	./so_long map/fail/fail-extension.be || \
-	./so_long map/fail/fail-lacks-all.ber || \
-	./so_long map/fail/fail-lacks-collectible.ber || \
-	./so_long map/fail/fail-lacks-exit.ber || \
-	./so_long map/fail/fail-lacks-spawn.ber || \
-	./so_long map/fail/fail-read-rights.ber || \
-	./so_long map/fail/fail-unknown-char.ber || \
-	./so_long map/fail/fail-wall-rectangle.ber || \
+	echo "\033[0;32m.ber file\033[0m" && ./so_long map/fail/.ber || \
+	echo "\033[0;32mduplicate exit\033[0m" && ./so_long map/fail/fail-duplicate-exit.ber || \
+	echo "\033[0;32mnon existing file\033[0m" && ./so_long map/fail/idontexist.ber || \
+	echo "\033[0;32mduplicate spawn\033[0m" && ./so_long map/fail/fail-duplicate-spawn.ber || \
+	echo "\033[0;32mempty map\033[0m" && ./so_long map/fail/fail-empty.ber || \
+	echo "\033[0;32mwrong extension\033[0m" && ./so_long map/fail/fail-extension.be || \
+	echo "\033[0;32mno special case\033[0m" && ./so_long map/fail/fail-lacks-all.ber || \
+	echo "\033[0;32mno collectible\033[0m" && ./so_long map/fail/fail-lacks-collectible.ber || \
+	echo "\033[0;32mno exit\033[0m" && ./so_long map/fail/fail-lacks-exit.ber || \
+	echo "\033[0;32mno spawn\033[0m" && ./so_long map/fail/fail-lacks-spawn.ber || \
+	echo "\033[0;32mno read rights\033[0m" && ./so_long map/fail/fail-read-rights.ber || \
+	echo "\033[0;32munknown char\033[0m" && ./so_long map/fail/fail-unknown-char.ber || \
+	echo "\033[0;32mnot surrounded by walls\033[0m" && ./so_long map/fail/fail-wall-rectangle.ber || \
+	echo "\033[0;32mnot rectangle\033[0m" && ./so_long map/fail/fail-not-rectangle.ber || \
 	chmod +r map/fail/fail-read-rights.ber
 
 gdb: all
